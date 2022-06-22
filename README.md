@@ -80,6 +80,26 @@ module.exports = {
 <br></details>
 
 
+## Example
+
+```ts
+import type { CallExpression } from '@babel/types'
+import type { Transformer } from 'unplugin-ast'
+
+export const RemoveWrapperFunction = (
+  functionNames: string[]
+): Transformer<CallExpression> => ({
+  onNode: (node) =>
+    node.type === 'CallExpression' &&
+    node.callee.type === 'Identifier' &&
+    toArray(functionNames).includes(node.callee.name),
+
+  transform(node) {
+    return node.arguments[0]
+  },
+})
+```
+
 ## Sponsors
 
 <p align="center">
