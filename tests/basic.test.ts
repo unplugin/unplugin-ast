@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 import { transform } from '../src/core/transform'
-import type { Identifier, StringLiteral } from '@babel/types'
+import type { CallExpression, Identifier, StringLiteral } from '@babel/types'
 import type { OptionsResolved, Transformer } from '../src/core/options'
 
 test('basic', async () => {
@@ -35,4 +35,34 @@ test('basic', async () => {
   options.transformer.splice(0, 1)
   code = await transform(source, 'foo.js', options)
   expect(code).toMatchInlineSnapshot('"const newName = \'string\'"')
+})
+
+test('remove wrapper function', async () => {
+  const source = `const comp = defineComponent({
+    render() {
+      return []
+    }
+  })`
+  const transformer: Transformer<CallExpression> = {
+    filterNode: (node) =>
+      node.type === 'CallExpression' &&
+      node.callee.type === 'Identifier' &&
+      node.callee.name === 'defineComponent',
+    transform(node, code) {
+      const [arg] = node.arguments
+      code.overwrite(node.start!, node.end!, code.slice(arg.start!, arg.end!))
+    },
+  }
+  const options: Pick<OptionsResolved, 'parserOptions' | 'transformer'> = {
+    transformer: [transformer],
+    parserOptions: {},
+  }
+  const code = await transform(source, 'foo.js', options)
+  expect(code).toMatchInlineSnapshot(`
+    "const comp = {
+        render() {
+          return []
+        }
+      }"
+  `)
 })
