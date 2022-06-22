@@ -1,23 +1,10 @@
-import { walk } from 'estree-walker'
 import MagicString from 'magic-string'
-import { parseCode } from './parse'
-import type { NodeRef, Transformer, TransformerParsed } from './types'
+import { parseCode, walkAst } from './ast'
+import { useNodeRef } from './utils'
+import type { Transformer, TransformerParsed } from './types'
 import type { SourceMap } from 'rollup'
 import type { ExpressionStatement, Node } from '@babel/types'
 import type { OptionsResolved } from './options'
-
-const nodeRefs: Map<Node, NodeRef> = new Map()
-function getNodeRef(node: Node) {
-  if (nodeRefs.has(node)) return nodeRefs.get(node)!
-  const ref: NodeRef = {
-    value: node,
-    set(node: Node) {
-      this.value = node
-    },
-  }
-  nodeRefs.set(node, ref)
-  return ref
-}
 
 async function getTransformersByFile(transformer: Transformer[], id: string) {
   const transformers = (
@@ -40,29 +27,22 @@ export const transform = async (
   id: string,
   options: Pick<OptionsResolved, 'parserOptions' | 'transformer'>
 ): Promise<{ code: string; map: SourceMap } | undefined> => {
+  const { getNodeRef } = useNodeRef()
+
   const transformers = await getTransformersByFile(options.transformer, id)
   if (transformers.length === 0) return
 
   const nodes = parseCode(code, id, options.parserOptions)
 
-  const promises: Promise<void>[] = []
-  walk(nodes, {
-    enter(node: Node, parent: Node) {
-      if (!node.type) return
-      const p = (async () => {
-        for (const { transformer, nodes } of transformers) {
-          if (transformer.onNode) {
-            const bool = await transformer.onNode?.(node, parent)
-            if (!bool) continue
-          }
-          nodes.push(getNodeRef(node))
-        }
-      })()
-      promises.push(p)
-    },
+  await walkAst(nodes, async (node, parent) => {
+    for (const { transformer, nodes } of transformers) {
+      if (transformer.onNode) {
+        const bool = await transformer.onNode?.(node, parent)
+        if (!bool) continue
+      }
+      nodes.push(getNodeRef(node))
+    }
   })
-
-  await Promise.all(promises)
 
   const s = new MagicString(code)
   for (const { transformer, nodes } of transformers) {

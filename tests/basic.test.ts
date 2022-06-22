@@ -1,7 +1,9 @@
 import { expect, test } from 'vitest'
 import { transform } from '../src/core/transform'
+import { RemoveWrapperFunction } from '../src/resolvers'
 import type { Identifier, NumericLiteral, StringLiteral } from '@babel/types'
-import type { OptionsResolved, Transformer } from '../src/core/options'
+import type { OptionsResolved } from '../src/core/options'
+import type { Transformer } from '../src/core/types'
 
 const changeString: Transformer<StringLiteral> = {
   onNode: (node): node is StringLiteral => node.type === 'StringLiteral',
@@ -61,9 +63,16 @@ test('basic', async () => {
     "const newName = 'Hello'
     let i = 10"
   `)
+})
 
+test('change twice', async () => {
+  const source = `const foo = 'string'\nlet i = 10`
+  const options: Pick<OptionsResolved, 'parserOptions' | 'transformer'> = {
+    transformer: [],
+    parserOptions: {},
+  }
   options.transformer = [changeString, changeVarName, overwriteVarName]
-  code = (await transform(source, 'foo.js', options))?.code
+  let code = (await transform(source, 'foo.js', options))?.code
   expect(code).toMatchInlineSnapshot(`
     "const overwrite_newName = 'Hello'
     let overwrite_i = 10"
@@ -75,4 +84,15 @@ test('basic', async () => {
     "const foo = 'string'
     let i = 10000"
   `)
+})
+
+test.skip('overwrite part', async () => {
+  const source = `const str = fn(foo + bar)`
+  const options: Pick<OptionsResolved, 'parserOptions' | 'transformer'> = {
+    transformer: [RemoveWrapperFunction('fn'), changeVarName],
+    parserOptions: {},
+  }
+  expect(
+    (await transform(source, 'foo.js', options))?.code
+  ).toMatchInlineSnapshot('undefined')
 })
