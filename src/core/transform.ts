@@ -1,6 +1,7 @@
 import { walk } from 'estree-walker'
 import MagicString from 'magic-string'
 import { parseCode } from './parse'
+import type { TransformResult } from 'unplugin'
 import type { Node } from '@babel/types'
 import type { OptionsResolved, Transformer } from './options'
 
@@ -8,7 +9,7 @@ export const transform = async (
   code: string,
   id: string,
   options: Pick<OptionsResolved, 'parserOptions' | 'transformer'>
-) => {
+): Promise<TransformResult> => {
   interface TransformerParsed {
     transformer: Transformer
     nodes: Node[]
@@ -56,6 +57,15 @@ export const transform = async (
       await transformer.transform(node, s, { id })
     }
   }
+  if (!s.hasChanged()) return undefined
 
-  return s.hasChanged() ? s.toString() : code
+  return {
+    code: s.toString(),
+    get map() {
+      return s.generateMap({
+        source: id,
+        includeContent: true,
+      })
+    },
+  }
 }
