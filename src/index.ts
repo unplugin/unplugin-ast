@@ -26,3 +26,4 @@ export default createUnplugin<Options>((options = {}) => {
 export * from './core/options'
 export * from './core/parse'
 export * from './core/transform'
+export * from './core/types'

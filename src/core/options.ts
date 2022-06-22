@@ -1,8 +1,7 @@
 import { toArray } from '@antfu/utils'
-import type MagicString from 'magic-string'
+import type { Transformer } from './types'
 import type { ParserOptions } from '@babel/parser'
-import type { Arrayable, Awaitable } from '@antfu/utils'
-import type { Node } from '@babel/types'
+import type { Arrayable } from '@antfu/utils'
 import type { FilterPattern } from '@rollup/pluginutils'
 
 export interface Options {
@@ -11,20 +10,6 @@ export interface Options {
   enforce?: 'post' | 'pre' | undefined
   parserOptions?: ParserOptions
   transformer?: Arrayable<Transformer<any>>
-}
-
-export interface Transformer<T extends Node = Node> {
-  filterFile?: (id: string) => Awaitable<boolean>
-  filterNode?:
-    | ((node: Node, parent: Node) => Awaitable<boolean>)
-    | ((node: Node, parent: Node) => node is T)
-  transform: (
-    node: T,
-    code: MagicString,
-    context: {
-      id: string
-    }
-  ) => Awaitable<string | undefined | null | void>
 }
 
 export type OptionsResolved = Omit<Required<Options>, 'transformer'> & {

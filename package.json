@@ -47,9 +47,9 @@
       "require": "./dist/esbuild.js",
       "import": "./dist/esbuild.mjs"
     },
-    "./cores": {
-      "require": "./dist/cores.js",
-      "import": "./dist/cores.mjs"
+    "./presets": {
+      "require": "./dist/presets.js",
+      "import": "./dist/presets.mjs"
     },
     "./*": "./*"
   },
@@ -89,6 +89,7 @@
     "estree-walker": "^2.0.2",
     "fast-glob": "^3.2.11",
     "prettier": "^2.7.1",
+    "rollup": "^2.75.7",
     "tsup": "^6.1.2",
     "tsx": "^3.4.3",
     "typescript": "^4.7.4",

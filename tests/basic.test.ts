@@ -1,68 +1,78 @@
 import { expect, test } from 'vitest'
 import { transform } from '../src/core/transform'
-import type { CallExpression, Identifier, StringLiteral } from '@babel/types'
+import type { Identifier, NumericLiteral, StringLiteral } from '@babel/types'
 import type { OptionsResolved, Transformer } from '../src/core/options'
 
+const changeString: Transformer<StringLiteral> = {
+  onNode: (node): node is StringLiteral => node.type === 'StringLiteral',
+  transform() {
+    return "'Hello'"
+  },
+}
+
+const changeVarName: Transformer<Identifier> = {
+  onNode: (node): node is Identifier =>
+    node.type === 'Identifier' && node.name === 'foo',
+  transform() {
+    return 'newName'
+  },
+}
+
+const overwriteVarName: Transformer<Identifier> = {
+  onNode: (node): node is Identifier => node.type === 'Identifier',
+  transform(node) {
+    return `overwrite_${node.name}`
+  },
+}
+
+const timesTen: Transformer<NumericLiteral> = {
+  onNode: (node): node is NumericLiteral => node.type === 'NumericLiteral',
+  transform(node) {
+    return `${node.value * 10}`
+  },
+}
+
 test('basic', async () => {
-  const source = `const foo = 'string'`
+  const source = `const foo = 'string'\nlet i = 10`
   const options: Pick<OptionsResolved, 'parserOptions' | 'transformer'> = {
     transformer: [],
     parserOptions: {},
   }
-  let code = await transform(source, 'foo.js', options)
+  let code = (await transform(source, 'foo.js', options))?.code
   expect(code).toMatchInlineSnapshot('undefined')
 
-  const transformer: Transformer<StringLiteral> = {
-    filterNode: (node): node is StringLiteral => node.type === 'StringLiteral',
-    transform(node, code) {
-      code.overwrite(node.start!, node.end!, '"Hello"')
-    },
-  }
-  options.transformer.push(transformer)
-  code = await transform(source, 'foo.js', options)
-  expect(code).toMatchInlineSnapshot('"const foo = \\"Hello\\""')
-
-  const transformer2: Transformer<Identifier> = {
-    filterNode: (node): node is Identifier => node.type === 'Identifier',
-    transform(node, code) {
-      code.overwrite(node.start!, node.end!, 'newName')
-    },
-  }
-  options.transformer.push(transformer2)
-  code = await transform(source, 'foo.js', options)
-  expect(code).toMatchInlineSnapshot('"const newName = \\"Hello\\""')
-
-  options.transformer.splice(0, 1)
-  code = await transform(source, 'foo.js', options)
-  expect(code).toMatchInlineSnapshot('"const newName = \'string\'"')
-})
-
-test('remove wrapper function', async () => {
-  const source = `const comp = defineComponent({
-    render() {
-      return []
-    }
-  })`
-  const transformer: Transformer<CallExpression> = {
-    filterNode: (node) =>
-      node.type === 'CallExpression' &&
-      node.callee.type === 'Identifier' &&
-      node.callee.name === 'defineComponent',
-    transform(node, code) {
-      const [arg] = node.arguments
-      code.overwrite(node.start!, node.end!, code.slice(arg.start!, arg.end!))
-    },
-  }
-  const options: Pick<OptionsResolved, 'parserOptions' | 'transformer'> = {
-    transformer: [transformer],
-    parserOptions: {},
-  }
-  const code = await transform(source, 'foo.js', options)
+  options.transformer = [changeString]
+  code = (await transform(source, 'foo.js', options))?.code
   expect(code).toMatchInlineSnapshot(`
-    "const comp = {
-        render() {
-          return []
-        }
-      }"
+    "const foo = 'Hello'
+    let i = 10"
+  `)
+
+  options.transformer = [changeVarName]
+  code = (await transform(source, 'foo.js', options))?.code
+  expect(code).toMatchInlineSnapshot(`
+    "const newName = 'string'
+    let i = 10"
+  `)
+
+  options.transformer = [changeString, changeVarName]
+  code = (await transform(source, 'foo.js', options))?.code
+  expect(code).toMatchInlineSnapshot(`
+    "const newName = 'Hello'
+    let i = 10"
+  `)
+
+  options.transformer = [changeString, changeVarName, overwriteVarName]
+  code = (await transform(source, 'foo.js', options))?.code
+  expect(code).toMatchInlineSnapshot(`
+    "const overwrite_newName = 'Hello'
+    let overwrite_i = 10"
+  `)
+
+  options.transformer = [timesTen, timesTen, timesTen]
+  code = (await transform(source, 'foo.js', options))?.code
+  expect(code).toMatchInlineSnapshot(`
+    "const foo = 'string'
+    let i = 10000"
   `)
 })
