@@ -1,0 +1,101 @@
+{
+  "name": "unplugin-ast",
+  "version": "0.0.0",
+  "packageManager": "pnpm@7.2.1",
+  "description": "Description.",
+  "keywords": [
+    "unplugin",
+    "rollup",
+    "vite",
+    "esbuild",
+    "webpack"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/sxzz/unplugin-ast#readme",
+  "bugs": {
+    "url": "https://github.com/sxzz/unplugin-ast/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sxzz/unplugin-ast.git"
+  },
+  "author": "三咲智子 <sxzz@sxzz.moe>",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./vite": {
+      "require": "./dist/vite.js",
+      "import": "./dist/vite.mjs"
+    },
+    "./webpack": {
+      "require": "./dist/webpack.js",
+      "import": "./dist/webpack.mjs"
+    },
+    "./rollup": {
+      "require": "./dist/rollup.js",
+      "import": "./dist/rollup.mjs"
+    },
+    "./esbuild": {
+      "require": "./dist/esbuild.js",
+      "import": "./dist/esbuild.mjs"
+    },
+    "./cores": {
+      "require": "./dist/cores.js",
+      "import": "./dist/cores.mjs"
+    },
+    "./*": "./*"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./*"
+      ]
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.json,.md",
+    "lint:fix": "pnpm run lint -- --fix",
+    "build": "tsup && tsx scripts/postbuild.mts",
+    "test": "vitest",
+    "release": "bumpp && pnpm publish",
+    "prepublishOnly": "pnpm run build"
+  },
+  "dependencies": {
+    "@antfu/utils": "^0.5.2",
+    "@babel/parser": "^7.18.5",
+    "@babel/types": "^7.18.4",
+    "@rollup/pluginutils": "^4.2.1",
+    "magic-string": "^0.26.2",
+    "unplugin": "^0.7.0"
+  },
+  "devDependencies": {
+    "@sxzz/eslint-config": "^2.2.2",
+    "@types/node": "*",
+    "bumpp": "^8.2.1",
+    "eslint": "^8.18.0",
+    "eslint-define-config": "^1.5.1",
+    "estree-walker": "^2.0.2",
+    "fast-glob": "^3.2.11",
+    "prettier": "^2.7.1",
+    "tsup": "^6.1.2",
+    "tsx": "^3.4.3",
+    "typescript": "^4.7.4",
+    "vite": "^2.9.12",
+    "vitest": "^0.15.1"
+  },
+  "engines": {
+    "node": ">=14.19.0"
+  }
+}

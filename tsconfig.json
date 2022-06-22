@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es2021",
+    "module": "esnext",
+    "lib": ["es2021"],
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "noUnusedLocals": true,
+    "resolveJsonModule": true,
+    "types": ["node"],
+    "exactOptionalPropertyTypes": true,
+    "jsx": "preserve"
+  },
+  "include": ["src", "tests", "scripts"],
+  "exclude": ["tests/fixtures"]
+}
