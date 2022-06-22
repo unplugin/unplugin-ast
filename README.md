@@ -112,7 +112,7 @@ export const RemoveWrapperFunction = (
   onNode: (node) =>
     node.type === 'CallExpression' &&
     node.callee.type === 'Identifier' &&
-    toArray(functionNames).includes(node.callee.name),
+    functionNames.includes(node.callee.name),
 
   transform(node) {
     return node.arguments[0]
