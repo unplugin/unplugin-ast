@@ -87,7 +87,7 @@ export const transform = async (
         s.overwrite(
           value.start!,
           value.end!,
-          s.slice(result.start!, result.end!)
+          `(${s.slice(result.start!, result.end!)})`
         )
         newAST = result
       }
