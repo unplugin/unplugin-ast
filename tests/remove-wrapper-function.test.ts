@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 import { transform } from '../src/core/transform'
-import { RemoveWrapperFunction } from '../src/presets'
+import { RemoveWrapperFunction } from '../src/resolvers'
 import type { OptionsResolved } from '../src/core/options'
 
 test('remove wrapper function', async () => {

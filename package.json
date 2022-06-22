@@ -47,9 +47,9 @@
       "require": "./dist/esbuild.js",
       "import": "./dist/esbuild.mjs"
     },
-    "./presets": {
-      "require": "./dist/presets.js",
-      "import": "./dist/presets.mjs"
+    "./resolvers": {
+      "require": "./dist/resolvers.js",
+      "import": "./dist/resolvers.mjs"
     },
     "./*": "./*"
   },
