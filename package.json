@@ -47,9 +47,9 @@
       "require": "./dist/esbuild.js",
       "import": "./dist/esbuild.mjs"
     },
-    "./resolvers": {
-      "require": "./dist/resolvers.js",
-      "import": "./dist/resolvers.mjs"
+    "./transformers": {
+      "require": "./dist/transformers.js",
+      "import": "./dist/transformers.mjs"
     },
     "./*": "./*"
   },

@@ -95,12 +95,12 @@ AST({
   // https://babeljs.io/docs/en/babel-parser#options
   parserOptions: {},
 
-  // Refer to Custom Resolver belows
+  // Refer to Custom Transformers belows
   transformer: [],
 })
 ```
 
-## Custom Resolver
+## Custom Transformers
 
 ```ts
 import type { CallExpression } from '@babel/types'

@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 import { transform } from '../src/core/transform'
-import { RemoveWrapperFunction } from '../src/resolvers'
+import { RemoveWrapperFunction } from '../src/transformers'
 import type { Identifier, NumericLiteral, StringLiteral } from '@babel/types'
 import type { OptionsResolved } from '../src/core/options'
 import type { Transformer } from '../src/core/types'
