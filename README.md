@@ -79,8 +79,28 @@ module.exports = {
 
 <br></details>
 
+## Configuration
 
-## Example
+The following show the default values of the configuration
+
+```ts
+AST({
+  // filters for transforming targets
+  include: [/\.[jt]sx?$/],
+  exclude: undefined,
+
+  // Rollup and esbuild do not support using enforce to control the order of plugins. Users need to maintain the order manually.
+  enforce: undefined,
+
+  // https://babeljs.io/docs/en/babel-parser#options
+  parserOptions: {},
+
+  // Refer to Custom Resolver belows
+  transformer: [],
+})
+```
+
+## Custom Resolver
 
 ```ts
 import type { CallExpression } from '@babel/types'
