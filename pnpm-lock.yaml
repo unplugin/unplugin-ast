@@ -10,7 +10,7 @@ specifiers:
   bumpp: ^8.2.1
   eslint: ^8.18.0
   eslint-define-config: ^1.5.1
-  estree-walker: ^2.0.2
+  estree-walker: ^3.0.1
   fast-glob: ^3.2.11
   magic-string: ^0.26.2
   prettier: ^2.7.1
@@ -36,7 +36,7 @@ devDependencies:
   bumpp: 8.2.1
   eslint: 8.18.0
   eslint-define-config: 1.5.1
-  estree-walker: 2.0.2
+  estree-walker: 3.0.1
   fast-glob: 3.2.11
   prettier: 2.7.1
   rollup: 2.75.7
@@ -1578,6 +1578,11 @@ packages:
 
   /estree-walker/2.0.2:
     resolution: {integrity: sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==}
+    dev: false
+
+  /estree-walker/3.0.1:
+    resolution: {integrity: sha512-woY0RUD87WzMBUiZLx8NsYr23N5BKsOMZHhu2hoNRVh6NXGfoiT1KOL8G3UHlJAnEDGmfa5ubNA/AacfG+Kb0g==}
+    dev: true
 
   /esutils/2.0.3:
     resolution: {integrity: sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==}
