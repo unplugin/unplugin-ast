@@ -33,7 +33,7 @@ export type OptionsResolved = Omit<Required<Options>, 'transformer'> & {
 
 export function resolveOption(options: Options): OptionsResolved {
   return {
-    include: options.include || [/\.[jt]sx$/],
+    include: options.include || [/\.[jt]sx?$/],
     exclude: options.exclude || undefined,
     enforce: options.enforce || undefined,
     parserOptions: options.parserOptions || {},
