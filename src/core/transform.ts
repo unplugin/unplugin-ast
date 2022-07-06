@@ -1,4 +1,5 @@
 import MagicString from 'magic-string'
+import generate from '@babel/generator'
 import { parseCode, walkAst } from './ast'
 import { useNodeRef } from './utils'
 import type { Transformer, TransformerParsed } from './types'
@@ -64,11 +65,8 @@ export const transform = async (
         newAST.start = value.start!
         newAST.end = value.end!
       } else {
-        s.overwrite(
-          value.start!,
-          value.end!,
-          `(${s.slice(result.start!, result.end!)})`
-        )
+        const generated = generate(result)
+        s.overwrite(value.start!, value.end!, `(${generated.code})`)
         newAST = result
       }
 
