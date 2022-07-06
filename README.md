@@ -100,7 +100,23 @@ AST({
 })
 ```
 
-## Custom Transformers
+## Transformers
+
+### Bultin Transformers
+
+```ts
+import { RemoveWrapperFunction } from 'unplugin-ast/resolvers'
+
+/**
+ * Removes wrapper function. e.g `defineComponent`, `defineConfig`...
+ * @param functionNames - function names to remove
+ */
+declare const RemoveWrapperFunction: (
+  functionNames: Arrayable<string>
+) => Transformer<CallExpression>
+```
+
+### Custom Transformers
 
 ```ts
 import type { CallExpression } from '@babel/types'
