@@ -2,7 +2,7 @@
   "name": "unplugin-ast",
   "version": "0.5.3",
   "packageManager": "pnpm@7.2.1",
-  "description": "Description.",
+  "description": "Manipulate the AST to transform your code.",
   "keywords": [
     "unplugin",
     "rollup",
