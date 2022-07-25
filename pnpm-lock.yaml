@@ -22,7 +22,7 @@ specifiers:
   typescript: ^4.7.4
   unplugin: ^0.7.2
   vite: ^3.0.2
-  vitest: ^0.18.1
+  vitest: ^0.19.0
 
 dependencies:
   '@antfu/utils': 0.5.2
@@ -48,7 +48,7 @@ devDependencies:
   tsx: 3.8.0
   typescript: 4.7.4
   vite: 3.0.2
-  vitest: 0.18.1
+  vitest: 0.19.0
 
 packages:
 
@@ -2876,18 +2876,21 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
 
-  /vitest/0.18.1:
-    resolution: {integrity: sha512-4F/1K/Vn4AvJwe7i2YblR02PT5vMKcw9KN4unDq2KD0YcSxX0B/6D6Qu9PJaXwVuxXMFTQ5ovd4+CQaW3bwofA==}
+  /vitest/0.19.0:
+    resolution: {integrity: sha512-nU80Gm95tMchigHpAMukxv1LoWbBGgknX/1MqrXCOoJoJL7/wfq4h2aow61o2jwf5szQrahoNqBqaGb+fYdYrQ==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
     peerDependencies:
       '@edge-runtime/vm': '*'
+      '@vitest/browser': '*'
       '@vitest/ui': '*'
       c8: '*'
       happy-dom: '*'
       jsdom: '*'
     peerDependenciesMeta:
       '@edge-runtime/vm':
+        optional: true
+      '@vitest/browser':
         optional: true
       '@vitest/ui':
         optional: true
