@@ -1,7 +1,7 @@
 {
   "name": "unplugin-ast",
   "version": "0.5.4",
-  "packageManager": "pnpm@7.8.0",
+  "packageManager": "pnpm@7.9.0",
   "description": "Manipulate the AST to transform your code.",
   "keywords": [
     "unplugin",
@@ -74,29 +74,29 @@
   },
   "dependencies": {
     "@antfu/utils": "^0.5.2",
-    "@babel/parser": "^7.18.9",
+    "@babel/parser": "^7.18.11",
     "@rollup/pluginutils": "^4.2.1",
     "magic-string": "^0.26.2",
-    "unplugin": "^0.8.0"
+    "unplugin": "^0.9.0"
   },
   "devDependencies": {
-    "@babel/generator": "^7.18.9",
-    "@babel/types": "^7.18.9",
+    "@babel/generator": "^7.18.12",
+    "@babel/types": "^7.18.10",
     "@sxzz/eslint-config": "^2.3.5",
     "@types/babel__generator": "^7.6.4",
     "@types/node": "*",
     "bumpp": "^8.2.1",
-    "eslint": "^8.20.0",
+    "eslint": "^8.21.0",
     "eslint-define-config": "^1.6.0",
     "estree-walker": "^3.0.1",
     "fast-glob": "^3.2.11",
     "prettier": "^2.7.1",
     "rollup": "^2.77.2",
     "tsup": "^6.2.1",
-    "tsx": "^3.8.0",
+    "tsx": "^3.8.1",
     "typescript": "^4.7.4",
     "vite": "^3.0.4",
-    "vitest": "^0.20.2"
+    "vitest": "^0.21.0"
   },
   "engines": {
     "node": ">=14.19.0"
