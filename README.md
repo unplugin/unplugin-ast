@@ -105,7 +105,7 @@ AST({
 ### Bultin Transformers
 
 ```ts
-import { RemoveWrapperFunction } from 'unplugin-ast/resolvers'
+import { RemoveWrapperFunction } from 'unplugin-ast/transformers'
 
 /**
  * Removes wrapper function. e.g `defineComponent`, `defineConfig`...
