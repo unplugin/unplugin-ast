@@ -102,7 +102,7 @@ AST({
 
 ## Transformers
 
-### Bultin Transformers
+### Built-in Transformers
 
 ```ts
 import { RemoveWrapperFunction } from 'unplugin-ast/transformers'
