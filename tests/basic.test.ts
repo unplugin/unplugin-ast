@@ -1,7 +1,12 @@
 import { expect, test } from 'vitest'
 import { transform } from '../src/core/transform'
 import { RemoveWrapperFunction } from '../src/transformers'
-import type { Identifier, NumericLiteral, StringLiteral } from '@babel/types'
+import type {
+  Identifier,
+  NumericLiteral,
+  Statement,
+  StringLiteral,
+} from '@babel/types'
 import type { OptionsResolved } from '../src/core/options'
 import type { Transformer } from '../src/core/types'
 
@@ -24,6 +29,14 @@ const overwriteVarName: Transformer<Identifier> = {
   onNode: (node): node is Identifier => node.type === 'Identifier',
   transform(node) {
     return `overwrite_${node.name}`
+  },
+}
+const removeFirstStatement: Transformer<Statement> = {
+  onNode: (node, parent, index): node is Statement =>
+    (parent?.type === 'Program' || parent?.type === 'BlockStatement') &&
+    index === 0,
+  transform() {
+    return false
   },
 }
 
@@ -83,6 +96,20 @@ test('change twice', async () => {
   expect(code).toMatchInlineSnapshot(`
     "const foo = 'string'
     let i = 10000"
+  `)
+})
+
+test('remove node', async () => {
+  const source = `const foo = 'string'\nlet i = 10;{i++}`
+  const options: Pick<OptionsResolved, 'parserOptions' | 'transformer'> = {
+    transformer: [],
+    parserOptions: {},
+  }
+  options.transformer = [removeFirstStatement]
+  const code = (await transform(source, 'foo.js', options))?.code
+  expect(code).toMatchInlineSnapshot(`
+    "
+    let i = 10;{}"
   `)
 })
 

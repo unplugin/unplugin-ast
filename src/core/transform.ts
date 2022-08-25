@@ -33,44 +33,49 @@ export const transform = async (
   const transformers = await getTransformersByFile(options.transformer, id)
   if (transformers.length === 0) return
 
-  const nodes = parseCode(code, id, options.parserOptions)
+  const program = parseCode(code, id, options.parserOptions)
 
-  await walkAst(nodes, async (node, parent) => {
+  await walkAst(program, async (node, parent, index) => {
     for (const { transformer, nodes } of transformers) {
       if (transformer.onNode) {
-        const bool = await transformer.onNode?.(node, parent)
+        const bool = await transformer.onNode?.(node, parent, index)
         if (!bool) continue
       }
-      nodes.push(getNodeRef(node))
+      nodes.push({
+        node: getNodeRef(node),
+      })
     }
   })
 
   const s = new MagicString(code)
   for (const { transformer, nodes } of transformers) {
-    for (const node of nodes) {
+    for (const { node } of nodes) {
       const value = node.value
+      if (!value) continue
       const result = await transformer.transform(value, code, { id })
-      if (!result) continue
 
-      let newAST: Node
-      if (typeof result === 'string') {
-        s.overwrite(value.start!, value.end!, result)
-        newAST = (
-          parseCode(
-            `(${result})`,
-            id,
-            options.parserOptions
-          )[0] as ExpressionStatement
-        ).expression
-        newAST.start = value.start!
-        newAST.end = value.end!
-      } else {
-        const generated = generate(result)
-        s.overwrite(value.start!, value.end!, `(${generated.code})`)
-        newAST = result
+      if (result) {
+        let newAST: Node
+        if (typeof result === 'string') {
+          s.overwrite(value.start!, value.end!, result)
+          newAST = (
+            parseCode(`(${result})`, id, options.parserOptions)
+              .body[0] as ExpressionStatement
+          ).expression
+          newAST.start = value.start!
+          newAST.end = value.end!
+        } else {
+          const generated = generate(result)
+          s.overwrite(value.start!, value.end!, `(${generated.code})`)
+          newAST = result
+        }
+
+        node.set(newAST)
+      } else if (result === false) {
+        // removes node
+        node.set(undefined)
+        s.remove(value.start!, value.end!)
       }
-
-      node.set(newAST)
     }
   }
   if (!s.hasChanged()) return undefined
