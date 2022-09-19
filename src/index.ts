@@ -17,7 +17,7 @@ export default createUnplugin<Options>((options = {}) => {
       return filter(id)
     },
 
-    async transform(code, id) {
+    transform(code, id) {
       return transform(code, id, opt)
     },
   }
