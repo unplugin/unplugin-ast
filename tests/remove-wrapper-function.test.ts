@@ -24,7 +24,6 @@ test('remove wrapper function', async () => {
       render() {
         return [];
       }
-
     })
       console.log(({} as const))
       console.log(() => ({} as const))
