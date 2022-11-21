@@ -66,7 +66,9 @@ export const transform = async (
           newAST.end = value.end!
         } else {
           const generated = generate(result)
-          s.overwrite(value.start!, value.end!, `(${generated.code})`)
+          let code = generated.code
+          if (result.type.endsWith('Expression')) code = `(${code})`
+          s.overwrite(value.start!, value.end!, code)
           newAST = result
         }
 
