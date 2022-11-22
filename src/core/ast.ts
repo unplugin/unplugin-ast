@@ -21,6 +21,7 @@ export const parseCode = (
     plugins,
     ...parserOptions,
     allowReturnOutsideFunction: true,
+    allowImportExportEverywhere: true,
   })
   return ast.program
 }

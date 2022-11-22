@@ -123,3 +123,25 @@ test.skip('overwrite part', async () => {
     (await transform(source, 'foo.js', options))?.code
   ).toMatchInlineSnapshot('undefined')
 })
+
+test('rewrite statement', async () => {
+  const source = `const foo = 'string'\nlet i = 10;{i++}`
+  const options: Pick<OptionsResolved, 'parserOptions' | 'transformer'> = {
+    transformer: [],
+    parserOptions: {},
+  }
+  options.transformer = [
+    {
+      onNode: (node, _, index) =>
+        node.type === 'VariableDeclaration' && index === 0,
+      transform() {
+        return `const foo = 'bar'; const bar = 'foo'`
+      },
+    },
+  ]
+  const code = (await transform(source, 'foo.js', options))?.code
+  expect(code).toMatchInlineSnapshot(`
+    "const foo = 'bar'; const bar = 'foo'
+    let i = 10;{i++}"
+  `)
+})

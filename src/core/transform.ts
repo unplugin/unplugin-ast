@@ -4,7 +4,7 @@ import { parseCode, walkAst } from './ast'
 import { useNodeRef } from './utils'
 import type { Transformer, TransformerParsed } from './types'
 import type { SourceMap } from 'rollup'
-import type { Node } from '@babel/types'
+import type { BlockStatement, Node } from '@babel/types'
 import type { OptionsResolved } from './options'
 
 async function getTransformersByFile(transformer: Transformer[], id: string) {
@@ -58,7 +58,10 @@ export const transform = async (
         let newAST: Node
         if (typeof result === 'string') {
           s.overwrite(value.start!, value.end!, result)
-          newAST = parseCode(result, id, options.parserOptions).body[0]
+          newAST = (
+            parseCode(`{${result}}`, id, options.parserOptions)
+              .body[0] as BlockStatement
+          ).body[0]
           if (newAST.type === 'ExpressionStatement') {
             newAST = newAST.expression
           }
