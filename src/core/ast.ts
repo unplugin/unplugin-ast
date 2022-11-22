@@ -20,6 +20,7 @@ export const parseCode = (
     sourceType: 'module',
     plugins,
     ...parserOptions,
+    allowReturnOutsideFunction: true,
   })
   return ast.program
 }
