@@ -5,7 +5,7 @@ specifiers:
   '@babel/generator': ^7.20.5
   '@babel/parser': ^7.20.5
   '@babel/types': ^7.20.5
-  '@rollup/pluginutils': ^4.2.1
+  '@rollup/pluginutils': ^5.0.2
   '@sxzz/eslint-config': ^2.4.4
   '@types/babel__generator': ^7.6.4
   '@types/node': '*'
@@ -27,7 +27,7 @@ specifiers:
 dependencies:
   '@antfu/utils': 0.7.2
   '@babel/parser': 7.20.5
-  '@rollup/pluginutils': 4.2.1
+  '@rollup/pluginutils': 5.0.2_rollup@2.79.1
   magic-string: 0.27.0
   unplugin: 1.0.0
 
@@ -241,12 +241,19 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@rollup/pluginutils/4.2.1:
-    resolution: {integrity: sha512-iKnFXr7NkdZAIHiIWE+BX5ULi/ucVFYWD6TbAV+rZctiRTY2PL6tsIKhoIOaoskiWAkgu+VsbXgUVDNLHf+InQ==}
-    engines: {node: '>= 8.0.0'}
+  /@rollup/pluginutils/5.0.2_rollup@2.79.1:
+    resolution: {integrity: sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0||^3.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
     dependencies:
+      '@types/estree': 1.0.0
       estree-walker: 2.0.2
       picomatch: 2.3.1
+      rollup: 2.79.1
     dev: false
 
   /@sxzz/eslint-config-basic/2.4.4_rnnto6773zbedjdlcir5anzjd4:
@@ -355,6 +362,10 @@ packages:
   /@types/chai/4.3.3:
     resolution: {integrity: sha512-hC7OMnszpxhZPduX+m+nrx+uFoLkWOMiR4oa/AZF3MuSETYTZmFfJAHqZEM8MVlvfG7BEUcgvtwoCTxBp6hm3g==}
     dev: true
+
+  /@types/estree/1.0.0:
+    resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
+    dev: false
 
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
@@ -2518,7 +2529,6 @@ packages:
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.2
-    dev: true
 
   /rollup/3.2.5:
     resolution: {integrity: sha512-/Ha7HhVVofduy+RKWOQJrxe4Qb3xyZo+chcpYiD8SoQa4AG7llhupUtyfKSSrdBM2mWJjhM8wZwmbY23NmlIYw==}
