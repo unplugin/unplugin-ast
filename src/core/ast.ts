@@ -31,6 +31,7 @@ export const walkAst = async (
   callback: (node: Node, parent: Node, index: number) => Awaitable<void>
 ) => {
   const promises: Promise<void>[] = []
+  // @ts-expect-error
   walk(node, {
     enter(node: Node, parent: Node, key, index) {
       if (!node.type) return
