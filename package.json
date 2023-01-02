@@ -1,7 +1,7 @@
 {
   "name": "unplugin-ast",
   "version": "0.6.0",
-  "packageManager": "pnpm@7.20.0",
+  "packageManager": "pnpm@7.21.0",
   "description": "Manipulate the AST to transform your code.",
   "keywords": [
     "unplugin",
@@ -84,19 +84,19 @@
     "@babel/types": "^7.20.7",
     "@sxzz/eslint-config": "^2.4.4",
     "@types/babel__generator": "^7.6.4",
-    "@types/node": "^18.11.17",
+    "@types/node": "^18.11.18",
     "bumpp": "^8.2.1",
-    "eslint": "^8.30.0",
+    "eslint": "^8.31.0",
     "eslint-define-config": "^1.12.0",
     "estree-walker": "^3.0.1",
     "fast-glob": "^3.2.12",
     "prettier": "^2.8.1",
-    "rollup": "^3.8.1",
+    "rollup": "^3.9.0",
     "tsup": "^6.5.0",
     "tsx": "^3.12.1",
     "typescript": "^4.9.4",
     "vite": "^4.0.3",
-    "vitest": "^0.26.2"
+    "vitest": "^0.26.3"
   },
   "engines": {
     "node": ">=14.19.0"
