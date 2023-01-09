@@ -1,7 +1,7 @@
 {
   "name": "unplugin-ast",
   "version": "0.6.0",
-  "packageManager": "pnpm@7.21.0",
+  "packageManager": "pnpm@7.23.0",
   "description": "Manipulate the AST to transform your code.",
   "keywords": [
     "unplugin",
@@ -90,7 +90,7 @@
     "eslint-define-config": "^1.13.0",
     "estree-walker": "^3.0.2",
     "fast-glob": "^3.2.12",
-    "prettier": "^2.8.1",
+    "prettier": "^2.8.2",
     "rollup": "^3.9.1",
     "tsup": "^6.5.0",
     "tsx": "^3.12.1",
