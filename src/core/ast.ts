@@ -33,7 +33,7 @@ export const walkAst = async (
   const promises: Promise<void>[] = []
   // @ts-expect-error
   walk(node, {
-    enter(node: Node, parent: Node, key, index) {
+    enter(node: Node, parent: Node, key, index: number) {
       if (!node.type) return
       promises.push(Promise.resolve(callback(node, parent, index)))
     },
