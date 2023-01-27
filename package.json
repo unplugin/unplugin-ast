@@ -25,41 +25,39 @@
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
-  "types": "index.d.ts",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "require": "./dist/index.js",
       "import": "./dist/index.mjs"
     },
     "./vite": {
+      "types": "./dist/vite.d.ts",
       "require": "./dist/vite.js",
       "import": "./dist/vite.mjs"
     },
     "./webpack": {
+      "types": "./dist/webpack.d.ts",
       "require": "./dist/webpack.js",
       "import": "./dist/webpack.mjs"
     },
     "./rollup": {
+      "types": "./dist/rollup.d.ts",
       "require": "./dist/rollup.js",
       "import": "./dist/rollup.mjs"
     },
     "./esbuild": {
+      "types": "./dist/esbuild.d.ts",
       "require": "./dist/esbuild.js",
       "import": "./dist/esbuild.mjs"
     },
     "./transformers": {
+      "types": "./dist/transformers.d.ts",
       "require": "./dist/transformers.js",
       "import": "./dist/transformers.mjs"
     },
     "./*": "./*"
-  },
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./dist/*",
-        "./*"
-      ]
-    }
   },
   "publishConfig": {
     "access": "public"
@@ -91,12 +89,12 @@
     "estree-walker": "^3.0.3",
     "fast-glob": "^3.2.12",
     "prettier": "^2.8.3",
-    "rollup": "^3.10.1",
+    "rollup": "^3.11.0",
     "tsup": "^6.5.0",
     "tsx": "^3.12.2",
-    "typescript": "^4.9.4",
+    "typescript": "^5.0.0-beta",
     "vite": "^4.0.4",
-    "vitest": "^0.28.1"
+    "vitest": "^0.28.3"
   },
   "engines": {
     "node": ">=14.19.0"
