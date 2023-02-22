@@ -1,7 +1,7 @@
 {
   "name": "unplugin-ast",
   "version": "0.7.0",
-  "packageManager": "pnpm@7.26.3",
+  "packageManager": "pnpm@7.27.1",
   "description": "Manipulate the AST to transform your code.",
   "keywords": [
     "unplugin",
@@ -72,29 +72,29 @@
   },
   "dependencies": {
     "@antfu/utils": "^0.7.2",
-    "@babel/generator": "^7.20.14",
-    "@babel/parser": "^7.20.15",
+    "@babel/generator": "^7.21.1",
+    "@babel/parser": "^7.21.1",
     "@rollup/pluginutils": "^5.0.2",
-    "magic-string": "^0.27.0",
-    "unplugin": "^1.0.1"
+    "magic-string": "^0.29.0",
+    "unplugin": "^1.1.0"
   },
   "devDependencies": {
-    "@babel/types": "^7.20.7",
-    "@sxzz/eslint-config": "^2.4.4",
+    "@babel/types": "^7.21.0",
+    "@sxzz/eslint-config": "^2.4.5",
     "@types/babel__generator": "^7.6.4",
-    "@types/node": "^18.13.0",
+    "@types/node": "^18.14.0",
     "bumpp": "^8.2.1",
-    "eslint": "^8.33.0",
+    "eslint": "^8.34.0",
     "eslint-define-config": "^1.15.0",
     "estree-walker": "^3.0.3",
     "fast-glob": "^3.2.12",
-    "prettier": "^2.8.3",
-    "rollup": "^3.14.0",
-    "tsup": "^6.5.0",
+    "prettier": "^2.8.4",
+    "rollup": "^3.17.2",
+    "tsup": "^6.6.3",
     "tsx": "^3.12.3",
-    "typescript": "^5.0.0-dev.20230207",
-    "vite": "^4.1.1",
-    "vitest": "^0.28.4"
+    "typescript": "^5.0.0-dev.20230221",
+    "vite": "^4.1.4",
+    "vitest": "^0.28.5"
   },
   "engines": {
     "node": ">=14.19.0"
