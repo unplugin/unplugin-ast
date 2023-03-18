@@ -1,7 +1,7 @@
 {
   "name": "unplugin-ast",
   "version": "0.7.0",
-  "packageManager": "pnpm@7.29.1",
+  "packageManager": "pnpm@7.29.3",
   "description": "Manipulate the AST to transform your code.",
   "keywords": [
     "unplugin",
