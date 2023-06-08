@@ -18,13 +18,13 @@ export interface Transformer<T extends Node = Node> {
   onNode?:
     | ((
         node: Node,
-        parent: Node | undefined,
-        index: number | null
+        parent: Node | null | undefined,
+        index: number | null | undefined
       ) => Awaitable<boolean>)
     | ((
         node: Node,
-        parent: Node | undefined,
-        index: number | null
+        parent: Node | null | undefined,
+        index: number | null | undefined
       ) => node is T)
   transform: (
     node: T,

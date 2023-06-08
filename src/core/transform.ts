@@ -2,7 +2,8 @@ import MagicString from 'magic-string'
 import generate from '@babel/generator'
 import { type SourceMap } from 'rollup'
 import { type BlockStatement, type Node } from '@babel/types'
-import { parseCode, walkAst } from './ast'
+import { babelParse, getLang } from 'ast-kit'
+import { walkAst } from './ast'
 import { useNodeRef } from './utils'
 import { type Transformer, type TransformerParsed } from './types'
 import { type OptionsResolved } from './options'
@@ -33,7 +34,7 @@ export const transform = async (
   const transformers = await getTransformersByFile(options.transformer, id)
   if (transformers.length === 0) return
 
-  const program = parseCode(code, id, options.parserOptions)
+  const program = babelParse(code, getLang(id), options.parserOptions)
 
   await walkAst(program, async (node, parent, index) => {
     for (const { transformer, nodes } of transformers) {
@@ -59,7 +60,7 @@ export const transform = async (
         if (typeof result === 'string') {
           s.overwrite(value.start!, value.end!, result)
           newAST = (
-            parseCode(`{${result}}`, id, options.parserOptions)
+            babelParse(`{${result}}`, getLang(id), options.parserOptions)
               .body[0] as BlockStatement
           ).body[0]
           if (newAST.type === 'ExpressionStatement') {

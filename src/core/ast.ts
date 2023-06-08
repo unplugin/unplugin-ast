@@ -1,38 +1,19 @@
-import { type ParserOptions, type ParserPlugin, parse } from '@babel/parser'
-import { walk } from 'estree-walker'
 import { type Awaitable } from '@antfu/utils'
-import { type Node, type Program } from '@babel/types'
+import { type Node } from '@babel/types'
+import { walkAST } from 'ast-kit'
 
-export const parseCode = (
-  code: string,
-  id: string,
-  parserOptions: ParserOptions
-): Program => {
-  const plugins: ParserPlugin[] = []
-  if (/\.[jt]sx$/.test(id)) {
-    plugins.push('jsx')
-  }
-  if (/\.tsx?$/.test(id)) {
-    plugins.push('typescript')
-  }
-  const ast = parse(code, {
-    sourceType: 'module',
-    plugins,
-    ...parserOptions,
-    allowReturnOutsideFunction: true,
-    allowImportExportEverywhere: true,
-  })
-  return ast.program
-}
-
-export const walkAst = async (
+export async function walkAst(
   node: Node,
-  callback: (node: Node, parent: Node, index: number) => Awaitable<void>
-) => {
+  callback: (
+    node: Node,
+    parent: Node | null | undefined,
+    index: number | null | undefined
+  ) => Awaitable<void>
+) {
   const promises: Promise<void>[] = []
-  // @ts-expect-error
-  walk(node, {
-    enter(node: Node, parent: Node, key, index: number) {
+
+  walkAST<Node>(node, {
+    enter(node, parent, key, index) {
       if (!node.type) return
       promises.push(Promise.resolve(callback(node, parent, index)))
     },
