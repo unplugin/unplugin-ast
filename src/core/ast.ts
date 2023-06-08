@@ -1,8 +1,7 @@
-import { parse } from '@babel/parser'
+import { type ParserOptions, type ParserPlugin, parse } from '@babel/parser'
 import { walk } from 'estree-walker'
-import type { Awaitable } from '@antfu/utils'
-import type { Node, Program } from '@babel/types'
-import type { ParserOptions, ParserPlugin } from '@babel/parser'
+import { type Awaitable } from '@antfu/utils'
+import { type Node, type Program } from '@babel/types'
 
 export const parseCode = (
   code: string,
