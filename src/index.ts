@@ -23,6 +23,5 @@ export default createUnplugin<Options>((options = {}) => {
 })
 
 export * from './core/options'
-export * from './core/ast'
 export * from './core/transform'
 export * from './core/types'
