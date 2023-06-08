@@ -89,7 +89,7 @@
   },
   "devDependencies": {
     "@babel/types": "^7.22.5",
-    "@sxzz/eslint-config": "^2.4.6",
+    "@sxzz/eslint-config": "^3.0.0",
     "@types/babel__generator": "^7.6.4",
     "@types/node": "^18.16.16",
     "bumpp": "^9.1.1",
