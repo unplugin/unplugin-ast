@@ -59,7 +59,7 @@ export const transform = async (
       if (result) {
         let newAST: Node
         if (typeof result === 'string') {
-          s.overwrite(value.start!, value.end!, result)
+          s.overwriteNode(value, result)
           newAST = (
             babelParse(`{${result}}`, getLang(id), options.parserOptions)
               .body[0] as BlockStatement
@@ -73,7 +73,7 @@ export const transform = async (
           const generated = generate(result)
           let code = generated.code
           if (result.type.endsWith('Expression')) code = `(${code})`
-          s.overwrite(value.start!, value.end!, code)
+          s.overwriteNode(value, code)
           newAST = result
         }
 
@@ -81,7 +81,7 @@ export const transform = async (
       } else if (result === false) {
         // removes node
         node.set(undefined)
-        s.remove(value.start!, value.end!)
+        s.removeNode(value)
       }
     }
   }
