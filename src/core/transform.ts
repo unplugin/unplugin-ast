@@ -1,11 +1,11 @@
 import MagicString from 'magic-string'
 import generate from '@babel/generator'
+import { type SourceMap } from 'rollup'
+import { type BlockStatement, type Node } from '@babel/types'
 import { parseCode, walkAst } from './ast'
 import { useNodeRef } from './utils'
-import type { Transformer, TransformerParsed } from './types'
-import type { SourceMap } from 'rollup'
-import type { BlockStatement, Node } from '@babel/types'
-import type { OptionsResolved } from './options'
+import { type Transformer, type TransformerParsed } from './types'
+import { type OptionsResolved } from './options'
 
 async function getTransformersByFile(transformer: Transformer[], id: string) {
   const transformers = (

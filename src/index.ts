@@ -1,8 +1,7 @@
 import { createUnplugin } from 'unplugin'
 import { createFilter } from '@rollup/pluginutils'
-import { resolveOption } from './core/options'
+import { type Options, resolveOption } from './core/options'
 import { transform } from './core/transform'
-import type { Options } from './core/options'
 
 export default createUnplugin<Options>((options = {}) => {
   const opt = resolveOption(options)

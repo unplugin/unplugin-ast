@@ -2,8 +2,8 @@
   "name": "unplugin-ast",
   "version": "0.7.0",
   "packageManager": "pnpm@8.6.1",
-  "type": "module",
   "description": "Manipulate the AST to transform your code.",
+  "type": "module",
   "keywords": [
     "unplugin",
     "rollup",
@@ -72,7 +72,7 @@
     "access": "public"
   },
   "scripts": {
-    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.json,.md",
+    "lint": "eslint .",
     "lint:fix": "pnpm run lint -- --fix",
     "build": "tsup && tsx scripts/postbuild.ts",
     "test": "vitest",
@@ -89,7 +89,7 @@
   },
   "devDependencies": {
     "@babel/types": "^7.22.5",
-    "@sxzz/eslint-config": "^2.4.6",
+    "@sxzz/eslint-config": "^3.0.0",
     "@types/babel__generator": "^7.6.4",
     "@types/node": "^18.16.16",
     "bumpp": "^9.1.1",
