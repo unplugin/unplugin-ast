@@ -18,11 +18,11 @@ dependencies:
     specifier: ^5.0.2
     version: 5.0.2(rollup@3.24.0)
   ast-kit:
-    specifier: ^0.6.2
-    version: 0.6.2(rollup@3.24.0)
-  magic-string:
-    specifier: ^0.30.0
-    version: 0.30.0
+    specifier: ^0.6.5
+    version: 0.6.5(rollup@3.24.0)
+  magic-string-ast:
+    specifier: ^0.1.2
+    version: 0.1.2
   unplugin:
     specifier: ^1.3.1
     version: 1.3.1
@@ -866,8 +866,8 @@ packages:
     resolution: {integrity: sha512-jgsaNduz+ndvGyFt3uSuWqvy4lCnIJiovtouQN5JZHOKCS2QuhEdbcQHFhVksz2N2U9hXJo8odG7ETyWlEeuDw==}
     dev: true
 
-  /ast-kit@0.6.2(rollup@3.24.0):
-    resolution: {integrity: sha512-H0BqU5HXa9bR8G4wHyAOJGMihn9eBJYUi5ZloNZOVsvHeGtAoFk3hxHftsfwcpZz24X7zBNQl3QM1ZluzoKqhA==}
+  /ast-kit@0.6.5(rollup@3.24.0):
+    resolution: {integrity: sha512-XCg0VWvmWU2T/6aMp8VRfJWZ6LZv1P0o8otWY7RAGtfKj0qGi45vtnKNkltJhu9tmbQNZxv+gJA4o7FtLDfmWg==}
     engines: {node: '>=16.14.0'}
     dependencies:
       '@babel/parser': 7.22.5
@@ -2302,6 +2302,13 @@ packages:
     dependencies:
       yallist: 4.0.0
     dev: true
+
+  /magic-string-ast@0.1.2:
+    resolution: {integrity: sha512-P53AZrzq7hclCU6HWj88xNZHmP15DKjMmK/vBytO1qnpYP3ul4IEZlyCE0aU3JRnmgWmZPmoTKj4Bls7v0pMyA==}
+    engines: {node: '>=14.19.0'}
+    dependencies:
+      magic-string: 0.30.0
+    dev: false
 
   /magic-string@0.30.0:
     resolution: {integrity: sha512-LA+31JYDJLs82r2ScLrlz1GjSgu66ZV518eyWT+S8VhyQn/JL0u9MeBOvQMGYiPk1DBiSN9DDMOcXvigJZaViQ==}

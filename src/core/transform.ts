@@ -1,9 +1,8 @@
-import MagicString from 'magic-string'
+import { MagicString } from 'magic-string-ast'
 import generate from '@babel/generator'
 import { type SourceMap } from 'rollup'
 import { type BlockStatement, type Node } from '@babel/types'
-import { babelParse, getLang } from 'ast-kit'
-import { walkAst } from './ast'
+import { babelParse, getLang, walkASTAsync } from 'ast-kit'
 import { useNodeRef } from './utils'
 import { type Transformer, type TransformerParsed } from './types'
 import { type OptionsResolved } from './options'
@@ -36,16 +35,18 @@ export const transform = async (
 
   const program = babelParse(code, getLang(id), options.parserOptions)
 
-  await walkAst(program, async (node, parent, index) => {
-    for (const { transformer, nodes } of transformers) {
-      if (transformer.onNode) {
-        const bool = await transformer.onNode?.(node, parent, index)
-        if (!bool) continue
+  await walkASTAsync(program, {
+    async enter(node, parent, key, index) {
+      for (const { transformer, nodes } of transformers) {
+        if (transformer.onNode) {
+          const bool = await transformer.onNode?.(node, parent, index)
+          if (!bool) continue
+        }
+        nodes.push({
+          node: getNodeRef(node),
+        })
       }
-      nodes.push({
-        node: getNodeRef(node),
-      })
-    }
+    },
   })
 
   const s = new MagicString(code)
