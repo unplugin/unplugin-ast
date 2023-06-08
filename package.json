@@ -2,6 +2,7 @@
   "name": "unplugin-ast",
   "version": "0.7.0",
   "packageManager": "pnpm@8.6.1",
+  "type": "module",
   "description": "Manipulate the AST to transform your code.",
   "keywords": [
     "unplugin",
@@ -29,35 +30,43 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./vite": {
       "types": "./dist/vite.d.ts",
-      "require": "./dist/vite.js",
-      "import": "./dist/vite.mjs"
+      "import": "./dist/vite.js",
+      "require": "./dist/vite.cjs"
     },
     "./webpack": {
       "types": "./dist/webpack.d.ts",
-      "require": "./dist/webpack.js",
-      "import": "./dist/webpack.mjs"
+      "import": "./dist/webpack.js",
+      "require": "./dist/webpack.cjs"
     },
     "./rollup": {
       "types": "./dist/rollup.d.ts",
-      "require": "./dist/rollup.js",
-      "import": "./dist/rollup.mjs"
+      "import": "./dist/rollup.js",
+      "require": "./dist/rollup.cjs"
     },
     "./esbuild": {
       "types": "./dist/esbuild.d.ts",
-      "require": "./dist/esbuild.js",
-      "import": "./dist/esbuild.mjs"
+      "import": "./dist/esbuild.js",
+      "require": "./dist/esbuild.cjs"
     },
     "./transformers": {
       "types": "./dist/transformers.d.ts",
-      "require": "./dist/transformers.js",
-      "import": "./dist/transformers.mjs"
+      "import": "./dist/transformers.js",
+      "require": "./dist/transformers.cjs"
     },
     "./*": "./*"
+  },
+  "typesVersions": {
+    "<=4.9": {
+      "*": [
+        "./dist/*",
+        "./*"
+      ]
+    }
   },
   "publishConfig": {
     "access": "public"
@@ -65,7 +74,7 @@
   "scripts": {
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.json,.md",
     "lint:fix": "pnpm run lint -- --fix",
-    "build": "tsup && tsx scripts/postbuild.mts",
+    "build": "tsup && tsx scripts/postbuild.ts",
     "test": "vitest",
     "release": "bumpp && pnpm publish",
     "prepublishOnly": "pnpm run build"
