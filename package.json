@@ -25,36 +25,54 @@
     "dist"
   ],
   "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
+      "types": {
+        "require": "./dist/index.d.cts",
+        "import": "./dist/index.d.ts"
+      },
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
     "./vite": {
-      "types": "./dist/vite.d.ts",
+      "types": {
+        "require": "./dist/vite.d.cts",
+        "import": "./dist/vite.d.ts"
+      },
       "import": "./dist/vite.js",
       "require": "./dist/vite.cjs"
     },
     "./webpack": {
-      "types": "./dist/webpack.d.ts",
+      "types": {
+        "require": "./dist/webpack.d.cts",
+        "import": "./dist/webpack.d.ts"
+      },
       "import": "./dist/webpack.js",
       "require": "./dist/webpack.cjs"
     },
     "./rollup": {
-      "types": "./dist/rollup.d.ts",
+      "types": {
+        "require": "./dist/rollup.d.cts",
+        "import": "./dist/rollup.d.ts"
+      },
       "import": "./dist/rollup.js",
       "require": "./dist/rollup.cjs"
     },
     "./esbuild": {
-      "types": "./dist/esbuild.d.ts",
+      "types": {
+        "require": "./dist/esbuild.d.cts",
+        "import": "./dist/esbuild.d.ts"
+      },
       "import": "./dist/esbuild.js",
       "require": "./dist/esbuild.cjs"
     },
     "./transformers": {
-      "types": "./dist/transformers.d.ts",
+      "types": {
+        "require": "./dist/transformers.d.cts",
+        "import": "./dist/transformers.d.ts"
+      },
       "import": "./dist/transformers.js",
       "require": "./dist/transformers.cjs"
     },
@@ -73,7 +91,7 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "lint:fix": "pnpm run lint -- --fix",
+    "lint:fix": "pnpm run lint --fix",
     "build": "tsup && tsx scripts/postbuild.ts",
     "test": "vitest",
     "release": "bumpp && pnpm publish",
