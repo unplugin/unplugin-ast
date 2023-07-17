@@ -32,5 +32,5 @@ export interface Transformer<T extends Node = Node> {
     context: {
       id: string
     }
-  ) => Awaitable<string | Node | false | undefined | null | void>
+  ) => Awaitable<string | Node | false | undefined | null>
 }
