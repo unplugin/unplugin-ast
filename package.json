@@ -1,7 +1,7 @@
 {
   "name": "unplugin-ast",
   "version": "0.8.2",
-  "packageManager": "pnpm@8.6.10",
+  "packageManager": "pnpm@8.6.11",
   "description": "Manipulate the AST to transform your code.",
   "type": "module",
   "keywords": [
@@ -103,7 +103,7 @@
     "@babel/parser": "^7.22.7",
     "@rollup/pluginutils": "^5.0.2",
     "ast-kit": "^0.9.4",
-    "magic-string-ast": "^0.2.0",
+    "magic-string-ast": "^0.3.0",
     "unplugin": "^1.4.0"
   },
   "devDependencies": {
@@ -111,17 +111,17 @@
     "@sxzz/eslint-config": "^3.2.3",
     "@sxzz/prettier-config": "^1.0.4",
     "@types/babel__generator": "^7.6.4",
-    "@types/node": "^20.4.4",
+    "@types/node": "^20.4.5",
     "bumpp": "^9.1.1",
-    "eslint": "^8.45.0",
-    "eslint-define-config": "^1.21.0",
+    "eslint": "^8.46.0",
+    "eslint-define-config": "^1.22.0",
     "fast-glob": "^3.3.1",
     "prettier": "^3.0.0",
-    "rollup": "^3.26.3",
+    "rollup": "^3.27.0",
     "tsup": "^7.1.0",
     "tsx": "^3.12.7",
     "typescript": "^5.1.6",
-    "vite": "^4.4.6",
+    "vite": "^4.4.7",
     "vitest": "^0.33.0"
   },
   "engines": {
