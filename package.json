@@ -33,48 +33,48 @@
         "require": "./dist/index.d.cts",
         "import": "./dist/index.d.ts"
       },
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
     },
     "./vite": {
       "types": {
         "require": "./dist/vite.d.cts",
         "import": "./dist/vite.d.ts"
       },
-      "import": "./dist/vite.js",
-      "require": "./dist/vite.cjs"
+      "require": "./dist/vite.cjs",
+      "import": "./dist/vite.js"
     },
     "./webpack": {
       "types": {
         "require": "./dist/webpack.d.cts",
         "import": "./dist/webpack.d.ts"
       },
-      "import": "./dist/webpack.js",
-      "require": "./dist/webpack.cjs"
+      "require": "./dist/webpack.cjs",
+      "import": "./dist/webpack.js"
     },
     "./rollup": {
       "types": {
         "require": "./dist/rollup.d.cts",
         "import": "./dist/rollup.d.ts"
       },
-      "import": "./dist/rollup.js",
-      "require": "./dist/rollup.cjs"
+      "require": "./dist/rollup.cjs",
+      "import": "./dist/rollup.js"
     },
     "./esbuild": {
       "types": {
         "require": "./dist/esbuild.d.cts",
         "import": "./dist/esbuild.d.ts"
       },
-      "import": "./dist/esbuild.js",
-      "require": "./dist/esbuild.cjs"
+      "require": "./dist/esbuild.cjs",
+      "import": "./dist/esbuild.js"
     },
     "./transformers": {
       "types": {
         "require": "./dist/transformers.d.cts",
         "import": "./dist/transformers.d.ts"
       },
-      "import": "./dist/transformers.js",
-      "require": "./dist/transformers.cjs"
+      "require": "./dist/transformers.cjs",
+      "import": "./dist/transformers.js"
     },
     "./*": "./*"
   },
