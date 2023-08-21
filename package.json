@@ -98,7 +98,7 @@
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
-    "@antfu/utils": "^0.7.5",
+    "@antfu/utils": "^0.7.6",
     "@babel/generator": "^7.22.10",
     "@babel/parser": "^7.22.10",
     "@rollup/pluginutils": "^5.0.3",
@@ -111,18 +111,18 @@
     "@sxzz/eslint-config": "^3.4.0",
     "@sxzz/prettier-config": "^1.0.4",
     "@types/babel__generator": "^7.6.4",
-    "@types/node": "^20.5.0",
-    "bumpp": "^9.1.1",
+    "@types/node": "^20.5.1",
+    "bumpp": "^9.2.0",
     "eslint": "^8.47.0",
     "eslint-define-config": "^1.23.0",
     "fast-glob": "^3.3.1",
-    "prettier": "^3.0.1",
+    "prettier": "^3.0.2",
     "rollup": "^3.28.0",
     "tsup": "^7.2.0",
     "tsx": "^3.12.7",
     "typescript": "^5.1.6",
     "vite": "^4.4.9",
-    "vitest": "^0.34.1"
+    "vitest": "^0.34.2"
   },
   "engines": {
     "node": ">=16.14.0"
