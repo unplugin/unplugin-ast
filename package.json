@@ -12,13 +12,13 @@
     "webpack"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/sxzz/unplugin-ast#readme",
+  "homepage": "https://github.com/unplugin/unplugin-ast#readme",
   "bugs": {
-    "url": "https://github.com/sxzz/unplugin-ast/issues"
+    "url": "https://github.com/unplugin/unplugin-ast/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sxzz/unplugin-ast.git"
+    "url": "git+https://github.com/unplugin/unplugin-ast.git"
   },
   "author": "三咲智子 <sxzz@sxzz.moe>",
   "files": [

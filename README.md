@@ -1,6 +1,6 @@
 # unplugin-ast [![npm](https://img.shields.io/npm/v/unplugin-ast.svg)](https://npmjs.com/package/unplugin-ast)
 
-[![Unit Test](https://github.com/sxzz/unplugin-ast/actions/workflows/unit-test.yml/badge.svg)](https://github.com/sxzz/unplugin-ast/actions/workflows/unit-test.yml)
+[![Unit Test](https://github.com/unplugin/unplugin-ast/actions/workflows/unit-test.yml/badge.svg)](https://github.com/unplugin/unplugin-ast/actions/workflows/unit-test.yml)
 
 Manipulate the AST to transform your code.
 
