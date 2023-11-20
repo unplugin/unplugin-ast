@@ -17,7 +17,7 @@ async function getTransformersByFile(transformer: Transformer[], id: string) {
           transformer: t,
           nodes: [],
         }
-      })
+      }),
     )
   ).filter((t): t is TransformerParsed => !!t)
   return transformers
@@ -26,7 +26,7 @@ async function getTransformersByFile(transformer: Transformer[], id: string) {
 export const transform = async (
   code: string,
   id: string,
-  options: Pick<OptionsResolved, 'parserOptions' | 'transformer'>
+  options: Pick<OptionsResolved, 'parserOptions' | 'transformer'>,
 ): Promise<{ code: string; map: SourceMap } | undefined> => {
   const { getNodeRef } = useNodeRef()
 

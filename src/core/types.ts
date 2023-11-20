@@ -19,18 +19,18 @@ export interface Transformer<T extends Node = Node> {
     | ((
         node: Node,
         parent: Node | null | undefined,
-        index: number | null | undefined
+        index: number | null | undefined,
       ) => Awaitable<boolean>)
     | ((
         node: Node,
         parent: Node | null | undefined,
-        index: number | null | undefined
+        index: number | null | undefined,
       ) => node is T)
   transform: (
     node: T,
     code: string,
     context: {
       id: string
-    }
+    },
   ) => Awaitable<string | Node | false | undefined | null>
 }

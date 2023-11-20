@@ -8,7 +8,7 @@ import { type Transformer } from '../types'
  * @returns Transformer
  */
 export const RemoveWrapperFunction = (
-  functionNames: Arrayable<string>
+  functionNames: Arrayable<string>,
 ): Transformer<CallExpression> => ({
   onNode: (node) =>
     node.type === 'CallExpression' &&

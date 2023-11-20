@@ -109,7 +109,7 @@
   "devDependencies": {
     "@babel/types": "^7.23.0",
     "@sxzz/eslint-config": "^3.6.1",
-    "@sxzz/prettier-config": "^1.0.4",
+    "@sxzz/prettier-config": "^2.0.0",
     "@types/babel__generator": "^7.6.5",
     "@types/node": "^20.8.2",
     "bumpp": "^9.2.0",

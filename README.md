@@ -112,7 +112,7 @@ import { RemoveWrapperFunction } from 'unplugin-ast/transformers'
  * @param functionNames - function names to remove
  */
 declare const RemoveWrapperFunction: (
-  functionNames: Arrayable<string>
+  functionNames: Arrayable<string>,
 ) => Transformer<CallExpression>
 ```
 
@@ -123,7 +123,7 @@ import { type CallExpression } from '@babel/types'
 import { type Transformer } from 'unplugin-ast'
 
 export const RemoveWrapperFunction = (
-  functionNames: string[]
+  functionNames: string[],
 ): Transformer<CallExpression> => ({
   onNode: (node) =>
     node.type === 'CallExpression' &&
