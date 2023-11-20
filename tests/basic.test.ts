@@ -120,7 +120,7 @@ test.skip('overwrite part', async () => {
     parserOptions: {},
   }
   expect(
-    (await transform(source, 'foo.js', options))?.code
+    (await transform(source, 'foo.js', options))?.code,
   ).toMatchInlineSnapshot('undefined')
 })
 
