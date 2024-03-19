@@ -1,11 +1,10 @@
-import { MagicString } from 'magic-string-ast'
+import { MagicString, type SourceMap } from 'magic-string-ast'
 import generate from '@babel/generator'
-import { type SourceMap } from 'rollup'
-import { type BlockStatement, type Node } from '@babel/types'
 import { babelParse, getLang, walkASTAsync } from 'ast-kit'
 import { useNodeRef } from './utils'
-import { type Transformer, type TransformerParsed } from './types'
-import { type OptionsResolved } from './options'
+import type { BlockStatement, Node } from '@babel/types'
+import type { Transformer, TransformerParsed } from './types'
+import type { OptionsResolved } from './options'
 
 async function getTransformersByFile(transformer: Transformer[], id: string) {
   const transformers = (
@@ -23,11 +22,11 @@ async function getTransformersByFile(transformer: Transformer[], id: string) {
   return transformers
 }
 
-export const transform = async (
+export async function transform(
   code: string,
   id: string,
   options: Pick<OptionsResolved, 'parserOptions' | 'transformer'>,
-): Promise<{ code: string; map: SourceMap } | undefined> => {
+): Promise<{ code: string; map: SourceMap } | undefined> {
   const { getNodeRef } = useNodeRef()
 
   const transformers = await getTransformersByFile(options.transformer, id)

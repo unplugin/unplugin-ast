@@ -1,5 +1,5 @@
-import { type Awaitable } from '@antfu/utils'
-import { type Node } from '@babel/types'
+import type { Awaitable } from '@antfu/utils'
+import type { Node } from '@babel/types'
 
 export interface TransformerParsed {
   transformer: Transformer

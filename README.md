@@ -119,8 +119,8 @@ declare const RemoveWrapperFunction: (
 ### Custom Transformers
 
 ```ts
-import { type CallExpression } from '@babel/types'
-import { type Transformer } from 'unplugin-ast'
+import type { CallExpression } from '@babel/types'
+import type { Transformer } from 'unplugin-ast'
 
 export const RemoveWrapperFunction = (
   functionNames: string[],
