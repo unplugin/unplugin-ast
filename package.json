@@ -93,6 +93,7 @@
     "lint": "eslint .",
     "lint:fix": "pnpm run lint --fix",
     "build": "tsup",
+    "dev": "tsup --watch",
     "test": "vitest",
     "release": "bumpp && pnpm publish",
     "prepublishOnly": "pnpm run build"

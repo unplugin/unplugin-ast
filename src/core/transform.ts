@@ -69,7 +69,10 @@ export async function transform(
           newAST.start = value.start!
           newAST.end = value.end!
         } else {
-          const generated = generate(result)
+          // @ts-expect-error
+          const generated = ((generate.default as undefined) || generate)(
+            result,
+          )
           let code = generated.code
           if (result.type.endsWith('Expression')) code = `(${code})`
           s.overwriteNode(value, code)

@@ -11,9 +11,16 @@ export interface Options {
   transformer?: Arrayable<Transformer<any>>
 }
 
-export type OptionsResolved = Omit<Required<Options>, 'transformer'> & {
-  transformer: Transformer<any>[]
-}
+type Overwrite<T, U> = Pick<T, Exclude<keyof T, keyof U>> & U
+
+export type OptionsResolved = Overwrite<
+  Required<Options>,
+  {
+    exclude: Options['exclude']
+    enforce: Options['enforce']
+    transformer: Transformer<any>[]
+  }
+>
 
 export function resolveOption(options: Options): OptionsResolved {
   return {
