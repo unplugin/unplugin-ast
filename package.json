@@ -114,7 +114,7 @@
     "@types/node": "^20.11.29",
     "bumpp": "^9.4.0",
     "eslint": "^8.57.0",
-    "eslint-define-config": "^1.24.1",
+    "eslint-define-config": "^2.1.0",
     "fast-glob": "^3.3.2",
     "prettier": "^3.2.5",
     "rollup": "^4.13.0",
