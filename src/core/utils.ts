@@ -1,5 +1,5 @@
-import { type Node } from '@babel/types'
-import { type NodeRef } from './types'
+import type { Node } from '@babel/types'
+import type { NodeRef } from './types'
 
 export function useNodeRef() {
   const nodeRefs: Map<Node, NodeRef<Node | undefined>> = new Map()

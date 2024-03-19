@@ -1,14 +1,14 @@
 import { expect, test } from 'vitest'
-import {
-  type Identifier,
-  type NumericLiteral,
-  type Statement,
-  type StringLiteral,
-} from '@babel/types'
 import { transform } from '../src/core/transform'
 import { RemoveWrapperFunction } from '../src/transformers'
-import { type OptionsResolved } from '../src/core/options'
-import { type Transformer } from '../src/core/types'
+import type {
+  Identifier,
+  NumericLiteral,
+  Statement,
+  StringLiteral,
+} from '@babel/types'
+import type { OptionsResolved } from '../src/core/options'
+import type { Transformer } from '../src/core/types'
 
 const changeString: Transformer<StringLiteral> = {
   onNode: (node): node is StringLiteral => node.type === 'StringLiteral',
