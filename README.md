@@ -65,20 +65,6 @@ module.exports = {
 
 <br></details>
 
-<details>
-<summary>Vue CLI</summary><br>
-
-```ts
-// vue.config.js
-module.exports = {
-  configureWebpack: {
-    plugins: [require('unplugin-ast/webpack')()],
-  },
-}
-```
-
-<br></details>
-
 ## Configuration
 
 The following show the default values of the configuration

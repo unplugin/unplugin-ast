@@ -1,1 +1,1 @@
-export * from './core/transformers/remove-wrapper-function'
+export * from './core/transformers'
