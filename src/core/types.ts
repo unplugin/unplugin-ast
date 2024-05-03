@@ -1,3 +1,4 @@
+import type { MagicStringAST } from 'magic-string-ast'
 import type { Awaitable } from '@antfu/utils'
 import type { Node } from '@babel/types'
 
@@ -33,4 +34,5 @@ export interface Transformer<T extends Node = Node> {
       id: string
     },
   ) => Awaitable<string | Node | false | undefined | null>
+  finalize?: (s: MagicStringAST) => Awaitable<void>
 }

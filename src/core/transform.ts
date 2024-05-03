@@ -92,5 +92,9 @@ export async function transform(
     }
   }
 
+  for (const { transformer } of transformers) {
+    await transformer.finalize?.(s)
+  }
+
   return generateTransform(s, id)
 }
