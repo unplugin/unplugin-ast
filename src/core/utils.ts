@@ -4,7 +4,7 @@ import type { NodeRef } from './types'
 export function useNodeRef() {
   const nodeRefs: Map<Node, NodeRef<Node | undefined>> = new Map()
 
-  const getNodeRef = (node: Node) => {
+  function getNodeRef(node: Node) {
     if (nodeRefs.has(node)) return nodeRefs.get(node)!
     const ref: NodeRef<Node | undefined> = {
       value: node,

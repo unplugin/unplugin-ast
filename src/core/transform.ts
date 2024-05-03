@@ -1,4 +1,8 @@
-import { MagicStringAST, type SourceMap } from 'magic-string-ast'
+import {
+  MagicStringAST,
+  type SourceMap,
+  generateTransform,
+} from 'magic-string-ast'
 import generate from '@babel/generator'
 import { babelParse, getLang, walkASTAsync } from 'ast-kit'
 import { useNodeRef } from './utils'
@@ -87,15 +91,6 @@ export async function transform(
       }
     }
   }
-  if (!s.hasChanged()) return undefined
 
-  return {
-    code: s.toString(),
-    get map() {
-      return s.generateMap({
-        source: id,
-        includeContent: true,
-      })
-    },
-  }
+  return generateTransform(s, id)
 }

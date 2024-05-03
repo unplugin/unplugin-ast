@@ -21,8 +21,8 @@ dependencies:
     specifier: ^0.12.1
     version: 0.12.1
   magic-string-ast:
-    specifier: ^0.5.0
-    version: 0.5.0
+    specifier: ^0.6.0
+    version: 0.6.0
   unplugin:
     specifier: ^1.10.1
     version: 1.10.1
@@ -2547,8 +2547,8 @@ packages:
       yallist: 4.0.0
     dev: true
 
-  /magic-string-ast@0.5.0:
-    resolution: {integrity: sha512-mxjxZ5zoR4+ybulZ7Z5qdZUTdAfiKJ1Il80kN/I4jWsHTTqNKZ9KsBa3Jepo+3U09I04qiyC2+7MZD8v4rJOoA==}
+  /magic-string-ast@0.6.0:
+    resolution: {integrity: sha512-TFODfAlfOZmuhFQ+h9qKDhL13un2FCoJ1bqWuhT5kUXr35W4tkcOWqvoCvKpuXymLcVAaNpFIvDZbope1pXGww==}
     engines: {node: '>=16.14.0'}
     dependencies:
       magic-string: 0.30.10

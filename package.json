@@ -84,7 +84,7 @@
     "@babel/parser": "^7.24.5",
     "@rollup/pluginutils": "^5.1.0",
     "ast-kit": "^0.12.1",
-    "magic-string-ast": "^0.5.0",
+    "magic-string-ast": "^0.6.0",
     "unplugin": "^1.10.1"
   },
   "devDependencies": {
