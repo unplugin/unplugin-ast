@@ -80,30 +80,30 @@
   },
   "dependencies": {
     "@antfu/utils": "^0.7.7",
-    "@babel/generator": "^7.24.4",
-    "@babel/parser": "^7.24.4",
+    "@babel/generator": "^7.24.5",
+    "@babel/parser": "^7.24.5",
     "@rollup/pluginutils": "^5.1.0",
     "ast-kit": "^0.12.1",
     "magic-string-ast": "^0.3.0",
     "unplugin": "^1.10.1"
   },
   "devDependencies": {
-    "@babel/types": "^7.24.0",
-    "@sxzz/eslint-config": "^3.9.0",
-    "@sxzz/prettier-config": "^2.0.1",
+    "@babel/types": "^7.24.5",
+    "@sxzz/eslint-config": "^3.11.0",
+    "@sxzz/prettier-config": "^2.0.2",
     "@types/babel__generator": "^7.6.8",
-    "@types/node": "^20.12.6",
-    "bumpp": "^9.4.0",
-    "eslint": "^9.0.0",
+    "@types/node": "^20.12.8",
+    "bumpp": "^9.4.1",
+    "eslint": "^9.1.1",
     "eslint-define-config": "^1.24.1",
     "fast-glob": "^3.3.2",
     "prettier": "^3.2.5",
-    "rollup": "^4.14.1",
+    "rollup": "^4.17.2",
     "tsup": "^8.0.2",
-    "tsx": "^4.7.2",
-    "typescript": "^5.4.4",
-    "vite": "^5.2.8",
-    "vitest": "^1.4.0"
+    "tsx": "^4.8.2",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11",
+    "vitest": "^1.5.3"
   },
   "engines": {
     "node": ">=16.14.0"
