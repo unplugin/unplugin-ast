@@ -1,4 +1,4 @@
-import { MagicString, type SourceMap } from 'magic-string-ast'
+import { MagicStringAST, type SourceMap } from 'magic-string-ast'
 import generate from '@babel/generator'
 import { babelParse, getLang, walkASTAsync } from 'ast-kit'
 import { useNodeRef } from './utils'
@@ -48,7 +48,7 @@ export async function transform(
     },
   })
 
-  const s = new MagicString(code)
+  const s = new MagicStringAST(code)
   for (const { transformer, nodes } of transformers) {
     for (const { node } of nodes) {
       const value = node.value

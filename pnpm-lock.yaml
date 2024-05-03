@@ -21,8 +21,8 @@ dependencies:
     specifier: ^0.12.1
     version: 0.12.1
   magic-string-ast:
-    specifier: ^0.3.0
-    version: 0.3.0
+    specifier: ^0.5.0
+    version: 0.5.0
   unplugin:
     specifier: ^1.10.1
     version: 1.10.1
@@ -49,9 +49,6 @@ devDependencies:
   eslint:
     specifier: ^9.1.1
     version: 9.1.1
-  eslint-define-config:
-    specifier: ^1.24.1
-    version: 1.24.1
   fast-glob:
     specifier: ^3.3.2
     version: 3.3.2
@@ -65,8 +62,8 @@ devDependencies:
     specifier: ^8.0.2
     version: 8.0.2(typescript@5.4.5)
   tsx:
-    specifier: ^4.8.2
-    version: 4.8.2
+    specifier: ^4.9.0
+    version: 4.9.0
   typescript:
     specifier: ^5.4.5
     version: 5.4.5
@@ -856,7 +853,7 @@ packages:
       eslint-config-prettier: 9.1.0(eslint@9.1.1)
       eslint-define-config: 1.24.1
       eslint-plugin-antfu: 2.1.2(eslint@9.1.1)
-      eslint-plugin-command: 0.1.5(eslint@9.1.1)
+      eslint-plugin-command: 0.1.6(eslint@9.1.1)
       eslint-plugin-eslint-comments: 3.2.0(eslint@9.1.1)
       eslint-plugin-import-x: 0.5.0(eslint@9.1.1)(typescript@5.4.5)
       eslint-plugin-jsonc: 2.15.1(eslint@9.1.1)
@@ -1684,8 +1681,8 @@ packages:
       eslint: 9.1.1
     dev: true
 
-  /eslint-plugin-command@0.1.5(eslint@9.1.1):
-    resolution: {integrity: sha512-CYJYYs2RT3l+W8dEVuB77hU81HYkqJ/bcP5tWlmW+jbAHJ32B7qyzTm7Se7e8LvWRXwaoFh7g2VGuMvidKkTLQ==}
+  /eslint-plugin-command@0.1.6(eslint@9.1.1):
+    resolution: {integrity: sha512-VSuVwTEL7HMvV96oZ6R/kU8IiC+gziKyht8/+fLe1UI39NRGqR2LOuBEIcQCfLOViE/A+n4/kc5gJEg7oPbWTg==}
     peerDependencies:
       eslint: '*'
     dependencies:
@@ -2553,8 +2550,8 @@ packages:
       yallist: 4.0.0
     dev: true
 
-  /magic-string-ast@0.3.0:
-    resolution: {integrity: sha512-0shqecEPgdFpnI3AP90epXyxZy9g6CRZ+SZ7BcqFwYmtFEnZ1jpevcV5HoyVnlDS9gCnc1UIg3Rsvp3Ci7r8OA==}
+  /magic-string-ast@0.5.0:
+    resolution: {integrity: sha512-mxjxZ5zoR4+ybulZ7Z5qdZUTdAfiKJ1Il80kN/I4jWsHTTqNKZ9KsBa3Jepo+3U09I04qiyC2+7MZD8v4rJOoA==}
     engines: {node: '>=16.14.0'}
     dependencies:
       magic-string: 0.30.10
@@ -3449,8 +3446,8 @@ packages:
       - ts-node
     dev: true
 
-  /tsx@4.8.2:
-    resolution: {integrity: sha512-hmmzS4U4mdy1Cnzpl/NQiPUC2k34EcNSTZYVJThYKhdqTwuBeF+4cG9KUK/PFQ7KHaAaYwqlb7QfmsE2nuj+WA==}
+  /tsx@4.9.0:
+    resolution: {integrity: sha512-UY0UUhDPL6MkqkZU4xTEjEBOLfV+RIt4xeeJ1qwK73xai4/zveG+X6+tieILa7rjtegUW2LE4p7fw7gAoLuytA==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     dependencies:

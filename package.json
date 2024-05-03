@@ -84,7 +84,7 @@
     "@babel/parser": "^7.24.5",
     "@rollup/pluginutils": "^5.1.0",
     "ast-kit": "^0.12.1",
-    "magic-string-ast": "^0.3.0",
+    "magic-string-ast": "^0.5.0",
     "unplugin": "^1.10.1"
   },
   "devDependencies": {
@@ -95,12 +95,11 @@
     "@types/node": "^20.12.8",
     "bumpp": "^9.4.1",
     "eslint": "^9.1.1",
-    "eslint-define-config": "^1.24.1",
     "fast-glob": "^3.3.2",
     "prettier": "^3.2.5",
     "rollup": "^4.17.2",
     "tsup": "^8.0.2",
-    "tsx": "^4.8.2",
+    "tsx": "^4.9.0",
     "typescript": "^5.4.5",
     "vite": "^5.2.11",
     "vitest": "^1.5.3"
