@@ -90,6 +90,8 @@ AST({
 
 ### Built-in Transformers
 
+#### RemoveWrapperFunction
+
 ```ts
 import { RemoveWrapperFunction } from 'unplugin-ast/transformers'
 
@@ -100,6 +102,18 @@ import { RemoveWrapperFunction } from 'unplugin-ast/transformers'
 declare const RemoveWrapperFunction: (
   functionNames: Arrayable<string>,
 ) => Transformer<CallExpression>
+```
+
+Transforms:
+
+```ts
+export default defineConfig(config)
+```
+
+To:
+
+```ts
+export default config
 ```
 
 ### Custom Transformers
