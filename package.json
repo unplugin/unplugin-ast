@@ -83,7 +83,7 @@
     "@babel/generator": "^7.24.5",
     "@babel/parser": "^7.24.5",
     "@rollup/pluginutils": "^5.1.0",
-    "ast-kit": "^0.12.1",
+    "ast-kit": "^1.0.0",
     "magic-string-ast": "^0.6.0",
     "unplugin": "^1.10.1"
   },
