@@ -11,10 +11,18 @@ test('remove wrapper function', async () => {
   })
   console.log(mutable({} as const))
   console.log(() => mutable({} as const))
+
+  const css = tw\`text-center \${expr}\`
   `
+
   const options: Pick<OptionsResolved, 'parserOptions' | 'transformer'> = {
     transformer: [
-      RemoveWrapperFunction(['defineComponent', 'mutable', 'definePropType']),
+      RemoveWrapperFunction([
+        'defineComponent',
+        'mutable',
+        'definePropType',
+        'tw',
+      ]),
     ],
     parserOptions: {},
   }
@@ -27,6 +35,8 @@ test('remove wrapper function', async () => {
     })
       console.log(({} as const))
       console.log(() => ({} as const))
+
+      const css = \`text-center \${expr}\`
       "
   `)
 })

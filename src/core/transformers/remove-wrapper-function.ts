@@ -1,5 +1,6 @@
 import { type Arrayable, toArray } from '@antfu/utils'
-import type { CallExpression } from '@babel/types'
+import { isCallOf, isTaggedFunctionCallOf } from 'ast-kit'
+import type { CallExpression, TaggedTemplateExpression } from '@babel/types'
 import type { Transformer } from '../types'
 
 /**
@@ -9,13 +10,13 @@ import type { Transformer } from '../types'
  */
 export const RemoveWrapperFunction = (
   functionNames: Arrayable<string>,
-): Transformer<CallExpression> => ({
+): Transformer<CallExpression | TaggedTemplateExpression> => ({
   onNode: (node) =>
-    node.type === 'CallExpression' &&
-    node.callee.type === 'Identifier' &&
-    toArray(functionNames).includes(node.callee.name),
+    isCallOf(node, toArray(functionNames)) ||
+    isTaggedFunctionCallOf(node, toArray(functionNames)),
 
   transform(node) {
+    if (node.type === 'TaggedTemplateExpression') return node.quasi
     return node.arguments[0]
   },
 })

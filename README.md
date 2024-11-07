@@ -98,6 +98,9 @@ import { RemoveWrapperFunction } from 'unplugin-ast/transformers'
 /**
  * Removes wrapper function. e.g `defineComponent`, `defineConfig`...
  * @param functionNames - function names to remove
+ *
+ * @example defineComponent()
+ * @example tw`text-red-500 ${expr}`
  */
 declare const RemoveWrapperFunction: (
   functionNames: Arrayable<string>,
