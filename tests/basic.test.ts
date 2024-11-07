@@ -1,14 +1,14 @@
 import { expect, test } from 'vitest'
 import { transform } from '../src/core/transform'
 import { RemoveWrapperFunction } from '../src/transformers'
+import type { OptionsResolved } from '../src/core/options'
+import type { Transformer } from '../src/core/types'
 import type {
   Identifier,
   NumericLiteral,
   Statement,
   StringLiteral,
 } from '@babel/types'
-import type { OptionsResolved } from '../src/core/options'
-import type { Transformer } from '../src/core/types'
 
 const changeString: Transformer<StringLiteral> = {
   onNode: (node): node is StringLiteral => node.type === 'StringLiteral',
@@ -43,7 +43,7 @@ const removeFirstStatement: Transformer<Statement> = {
 const timesTen: Transformer<NumericLiteral> = {
   onNode: (node): node is NumericLiteral => node.type === 'NumericLiteral',
   transform(node) {
-    return `${node.value * 10}`
+    return String(node.value * 10)
   },
 }
 

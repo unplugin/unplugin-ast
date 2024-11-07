@@ -1,6 +1,6 @@
-import type { MagicStringAST } from 'magic-string-ast'
 import type { Awaitable } from '@antfu/utils'
 import type { Node } from '@babel/types'
+import type { MagicStringAST } from 'magic-string-ast'
 
 export interface TransformerParsed {
   transformer: Transformer

@@ -1,14 +1,14 @@
-import {
-  MagicStringAST,
-  type SourceMap,
-  generateTransform,
-} from 'magic-string-ast'
 import generate from '@babel/generator'
 import { babelParse, getLang, walkASTAsync } from 'ast-kit'
+import {
+  generateTransform,
+  MagicStringAST,
+  type SourceMap,
+} from 'magic-string-ast'
 import { useNodeRef } from './utils'
-import type { BlockStatement, Node } from '@babel/types'
-import type { Transformer, TransformerParsed } from './types'
 import type { OptionsResolved } from './options'
+import type { Transformer, TransformerParsed } from './types'
+import type { BlockStatement, Node } from '@babel/types'
 
 async function getTransformersByFile(transformer: Transformer[], id: string) {
   const transformers = (

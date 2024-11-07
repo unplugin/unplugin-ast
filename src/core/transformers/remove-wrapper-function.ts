@@ -1,7 +1,7 @@
-import { type Arrayable, toArray } from '@antfu/utils'
+import { toArray, type Arrayable } from '@antfu/utils'
 import { isCallOf, isTaggedFunctionCallOf } from 'ast-kit'
-import type { CallExpression, TaggedTemplateExpression } from '@babel/types'
 import type { Transformer } from '../types'
+import type { CallExpression, TaggedTemplateExpression } from '@babel/types'
 
 /**
  * Removes wrapper function. e.g `defineComponent`, `defineConfig`...
