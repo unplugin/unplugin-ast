@@ -1,4 +1,4 @@
-# unplugin-ast [![npm](https://img.shields.io/npm/v/unplugin-ast.svg)](https://npmjs.com/package/unplugin-ast)
+# unplugin-ast [![npm](https://img.shields.io/npm/v/unplugin-ast.svg)](https://npmjs.com/package/unplugin-ast) [![jsr](https://jsr.io/badges/@unplugin/ast)](https://jsr.io/@unplugin/ast)
 
 [![Unit Test](https://github.com/unplugin/unplugin-ast/actions/workflows/unit-test.yml/badge.svg)](https://github.com/unplugin/unplugin-ast/actions/workflows/unit-test.yml)
 
