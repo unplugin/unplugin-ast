@@ -45,16 +45,14 @@ export async function transform(
           const bool = await transformer.onNode?.(node, parent, index)
           if (!bool) continue
         }
-        nodes.push({
-          node: getNodeRef(node),
-        })
+        nodes.push(getNodeRef(node))
       }
     },
   })
 
   const s = new MagicStringAST(code)
   for (const { transformer, nodes } of transformers) {
-    for (const { node } of nodes) {
+    for (const node of nodes) {
       const value = node.value
       if (!value) continue
       const result = await transformer.transform(value, code, { id })

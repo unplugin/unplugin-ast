@@ -4,9 +4,7 @@ import type { MagicStringAST } from 'magic-string-ast'
 
 export interface TransformerParsed {
   transformer: Transformer
-  nodes: {
-    node: NodeRef<Node | undefined>
-  }[]
+  nodes: NodeRef<Node | undefined>[]
 }
 
 export interface NodeRef<T = Node> {
