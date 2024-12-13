@@ -6,13 +6,15 @@ import type { Node } from '@babel/types'
  * Removes arbitrary nodes.
  * @returns Transformer
  */
-export const RemoveNode = (
+export function RemoveNode(
   onNode: (
     node: Node,
     parent: Node | null | undefined,
     index: number | null | undefined,
   ) => Awaitable<boolean>,
-): Transformer => ({
-  onNode,
-  transform: () => false,
-})
+): Transformer {
+  return {
+    onNode,
+    transform: () => false,
+  }
+}

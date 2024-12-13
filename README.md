@@ -102,9 +102,9 @@ import { RemoveWrapperFunction } from 'unplugin-ast/transformers'
  * @example defineComponent()
  * @example tw`text-red-500 ${expr}`
  */
-declare const RemoveWrapperFunction: (
+export function RemoveWrapperFunction(
   functionNames: Arrayable<string>,
-) => Transformer<CallExpression>
+): Transformer<CallExpression>
 ```
 
 Transforms:
@@ -117,6 +117,23 @@ To:
 
 ```ts
 export default config
+```
+
+#### RemoveNode
+
+```ts
+import { RemoveNode } from 'unplugin-ast/transformers'
+
+/**
+ * Removes arbitrary nodes.
+ */
+export function RemoveNode(
+  onNode: (
+    node: Node,
+    parent: Node | null | undefined,
+    index: number | null | undefined,
+  ) => Awaitable<boolean>,
+): Transformer
 ```
 
 ### Custom Transformers

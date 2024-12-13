@@ -8,15 +8,17 @@ import type { CallExpression, TaggedTemplateExpression } from '@babel/types'
  * @param functionNames - function names to remove
  * @returns Transformer
  */
-export const RemoveWrapperFunction = (
+export function RemoveWrapperFunction(
   functionNames: Arrayable<string>,
-): Transformer<CallExpression | TaggedTemplateExpression> => ({
-  onNode: (node) =>
-    isCallOf(node, toArray(functionNames)) ||
-    isTaggedFunctionCallOf(node, toArray(functionNames)),
+): Transformer<CallExpression | TaggedTemplateExpression> {
+  return {
+    onNode: (node) =>
+      isCallOf(node, toArray(functionNames)) ||
+      isTaggedFunctionCallOf(node, toArray(functionNames)),
 
-  transform(node) {
-    if (node.type === 'TaggedTemplateExpression') return node.quasi
-    return node.arguments[0]
-  },
-})
+    transform(node) {
+      if (node.type === 'TaggedTemplateExpression') return node.quasi
+      return node.arguments[0]
+    },
+  }
+}
