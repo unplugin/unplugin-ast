@@ -8,7 +8,8 @@
     "./rolldown": "./src/rolldown.ts",
     "./vite": "./src/vite.ts",
     "./webpack": "./src/webpack.ts",
-    "./rspack": "./src/rspack.ts"
+    "./rspack": "./src/rspack.ts",
+    "./transformers": "./src/transformers.ts"
   },
   "publish": {
     "include": [
