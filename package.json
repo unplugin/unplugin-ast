@@ -60,6 +60,10 @@
       "require": "./dist/transformers.cjs",
       "import": "./dist/transformers.js"
     },
+    "./ast-kit": {
+      "require": "./dist/ast-kit.cjs",
+      "import": "./dist/ast-kit.js"
+    },
     "./*": "./*"
   },
   "typesVersions": {

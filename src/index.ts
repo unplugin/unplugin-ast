@@ -27,5 +27,3 @@ export const AST: UnpluginInstance<Options, false> = createUnplugin(
 export * from './core/options'
 export * from './core/transform'
 export * from './core/types'
-
-export * from 'ast-kit'

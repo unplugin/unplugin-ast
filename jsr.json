@@ -9,7 +9,8 @@
     "./vite": "./src/vite.ts",
     "./webpack": "./src/webpack.ts",
     "./rspack": "./src/rspack.ts",
-    "./transformers": "./src/transformers.ts"
+    "./transformers": "./src/transformers.ts",
+    "./ast-kit": "./src/ast-kit.ts"
   },
   "publish": {
     "include": [
