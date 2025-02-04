@@ -98,7 +98,7 @@
   "devDependencies": {
     "@babel/parser": "^7.26.3",
     "@babel/types": "^7.26.3",
-    "@sxzz/eslint-config": "^4.5.1",
+    "@sxzz/eslint-config": "^5.0.1",
     "@sxzz/prettier-config": "^2.0.2",
     "@types/babel__generator": "^7.6.8",
     "@types/node": "^22.10.2",
