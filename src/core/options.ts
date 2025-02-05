@@ -1,7 +1,7 @@
 import { toArray, type Arrayable } from '@antfu/utils'
 import type { Transformer } from './types'
 import type { ParserOptions } from '@babel/parser'
-import type { FilterPattern } from '@rollup/pluginutils'
+import type { FilterPattern } from 'unplugin-utils'
 
 export interface Options {
   include?: FilterPattern
