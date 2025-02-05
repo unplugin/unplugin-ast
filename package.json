@@ -28,42 +28,15 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.js"
-    },
-    "./vite": {
-      "require": "./dist/vite.cjs",
-      "import": "./dist/vite.js"
-    },
-    "./webpack": {
-      "require": "./dist/webpack.cjs",
-      "import": "./dist/webpack.js"
-    },
-    "./rspack": {
-      "require": "./dist/rspack.cjs",
-      "import": "./dist/rspack.js"
-    },
-    "./rollup": {
-      "require": "./dist/rollup.cjs",
-      "import": "./dist/rollup.js"
-    },
-    "./rolldown": {
-      "require": "./dist/rolldown.cjs",
-      "import": "./dist/rolldown.js"
-    },
-    "./esbuild": {
-      "require": "./dist/esbuild.cjs",
-      "import": "./dist/esbuild.js"
-    },
-    "./transformers": {
-      "require": "./dist/transformers.cjs",
-      "import": "./dist/transformers.js"
-    },
-    "./ast-kit": {
-      "require": "./dist/ast-kit.cjs",
-      "import": "./dist/ast-kit.js"
-    },
+    ".": "./dist/index.js",
+    "./vite": "./dist/vite.js",
+    "./webpack": "./dist/webpack.js",
+    "./rspack": "./dist/rspack.js",
+    "./rollup": "./dist/rollup.js",
+    "./rolldown": "./dist/rolldown.js",
+    "./esbuild": "./dist/esbuild.js",
+    "./transformers": "./dist/transformers.js",
+    "./ast-kit": "./dist/ast-kit.js",
     "./*": "./*"
   },
   "typesVersions": {
@@ -80,8 +53,8 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "pnpm run lint --fix",
-    "build": "tsup",
-    "dev": "tsup --watch",
+    "build": "tsdown",
+    "dev": "tsdown --watch",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
     "release": "bumpp && pnpm publish",
@@ -106,7 +79,7 @@
     "eslint": "^9.19.0",
     "prettier": "^3.4.2",
     "rollup": "^4.34.4",
-    "tsup": "^8.3.6",
+    "tsdown": "^0.5.7",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
     "vite": "^6.1.0",
