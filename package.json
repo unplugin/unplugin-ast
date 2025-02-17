@@ -61,7 +61,7 @@
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
-    "@antfu/utils": "^8.1.0",
+    "@antfu/utils": "^9.1.0",
     "@babel/generator": "^7.26.5",
     "ast-kit": "^1.4.0",
     "magic-string-ast": "^0.7.0",
