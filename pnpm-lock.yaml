@@ -15,11 +15,11 @@ importers:
         specifier: ^7.26.9
         version: 7.26.9
       ast-kit:
-        specifier: ^1.4.0
+        specifier: ^1.4.2
         version: 1.4.2
       magic-string-ast:
-        specifier: ^0.7.0
-        version: 0.7.1
+        specifier: ^0.8.0
+        version: 0.8.0
       unplugin:
         specifier: ^2.2.0
         version: 2.2.0
@@ -37,7 +37,7 @@ importers:
         specifier: ^5.2.0
         version: 5.2.0(@types/eslint@9.6.1)(@typescript-eslint/eslint-plugin@8.26.0(@typescript-eslint/parser@8.26.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.8.2))(eslint@9.21.0(jiti@2.4.2))(typescript@5.8.2))(eslint@9.21.0(jiti@2.4.2))(typescript@5.8.2)
       '@sxzz/prettier-config':
-        specifier: ^2.2.0
+        specifier: ^2.2.1
         version: 2.2.1
       '@types/babel__generator':
         specifier: ^7.6.8
@@ -58,7 +58,7 @@ importers:
         specifier: ^4.34.9
         version: 4.34.9
       tsdown:
-        specifier: ^0.6.3
+        specifier: ^0.6.4
         version: 0.6.4(publint@0.3.3)(typescript@5.8.2)
       tsx:
         specifier: ^4.19.3
@@ -1438,9 +1438,9 @@ packages:
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
 
-  magic-string-ast@0.7.1:
-    resolution: {integrity: sha512-ub9iytsEbT7Yw/Pd29mSo/cNQpaEu67zR1VVcXDiYjSFwzeBxNdTd0FMnSslLQXiRj8uGPzwsaoefrMD5XAmdw==}
-    engines: {node: '>=16.14.0'}
+  magic-string-ast@0.8.0:
+    resolution: {integrity: sha512-e9eH6YOYl2OuDd3fNt2ciFhj/l2vxJmGeWLLcY+0NcW6k0Xitq7XIxN2++QVVhswXeJLy95SjF8oVKRyJC95GQ==}
+    engines: {node: '>=20.18.0'}
 
   magic-string@0.30.17:
     resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
@@ -3508,7 +3508,7 @@ snapshots:
 
   lru-cache@10.4.3: {}
 
-  magic-string-ast@0.7.1:
+  magic-string-ast@0.8.0:
     dependencies:
       magic-string: 0.30.17
 
