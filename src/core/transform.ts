@@ -1,4 +1,3 @@
-import generate from '@babel/generator'
 import { babelParse, getLang, walkASTAsync } from 'ast-kit'
 import {
   generateTransform,
@@ -71,10 +70,10 @@ export async function transform(
           newAST.start = value.start!
           newAST.end = value.end!
         } else {
-          // @ts-expect-error
-          const generated = ((generate.default as undefined) || generate)(
-            result,
-          )
+          let { default: generate } = await import('@babel/generator')
+          // @ts-expect-error interop default
+          generate = (generate.default as undefined) || generate
+          const generated = generate(result)
           let code = generated.code
           if (result.type.endsWith('Expression')) code = `(${code})`
           s.overwriteNode(value, code)
