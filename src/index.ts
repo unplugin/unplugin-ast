@@ -1,24 +1,21 @@
 import { createUnplugin, type UnpluginInstance } from 'unplugin'
-import { createFilter } from 'unplugin-utils'
-import { resolveOption, type Options } from './core/options'
+import { resolveOptions, type Options } from './core/options'
 import { transform } from './core/transform'
 
 export const AST: UnpluginInstance<Options, false> = createUnplugin(
-  (options = {}) => {
-    const opt = resolveOption(options)
-    const filter = createFilter(opt.include, opt.exclude)
+  (userOptions = {}) => {
+    const { include, exclude, enforce, ...options } =
+      resolveOptions(userOptions)
 
     const name = 'unplugin-ast'
     return {
       name,
-      enforce: options.enforce,
-
-      transformInclude(id) {
-        return filter(id)
-      },
-
-      transform(code, id) {
-        return transform(code, id, opt)
+      enforce,
+      transform: {
+        filter: { id: { include, exclude } },
+        handler(code, id) {
+          return transform(code, id, options)
+        },
       },
     }
   },

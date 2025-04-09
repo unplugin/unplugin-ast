@@ -1,11 +1,11 @@
 import { toArray, type Arrayable } from '@antfu/utils'
 import type { Transformer } from './types'
 import type { ParserOptions } from '@babel/parser'
-import type { FilterPattern } from 'unplugin-utils'
+import type { FilterPattern } from 'unplugin'
 
 export interface Options {
   include?: FilterPattern
-  exclude?: FilterPattern | undefined
+  exclude?: FilterPattern
   enforce?: 'post' | 'pre' | undefined
   parserOptions?: ParserOptions
   transformer?: Arrayable<Transformer<any>>
@@ -22,7 +22,7 @@ export type OptionsResolved = Overwrite<
   }
 >
 
-export function resolveOption(options: Options): OptionsResolved {
+export function resolveOptions(options: Options): OptionsResolved {
   return {
     include: options.include || [/\.[jt]sx?$/],
     exclude: options.exclude || undefined,

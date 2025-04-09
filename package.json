@@ -65,8 +65,7 @@
     "@babel/generator": "^7.26.10",
     "ast-kit": "^1.4.2",
     "magic-string-ast": "^0.8.0",
-    "unplugin": "^2.2.0",
-    "unplugin-utils": "^0.2.4"
+    "unplugin": "^2.3.0"
   },
   "devDependencies": {
     "@antfu/utils": "^9.1.0",

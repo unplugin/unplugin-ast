@@ -18,11 +18,8 @@ importers:
         specifier: ^0.8.0
         version: 0.8.0
       unplugin:
-        specifier: ^2.2.0
-        version: 2.2.0
-      unplugin-utils:
-        specifier: ^0.2.4
-        version: 0.2.4
+        specifier: ^2.3.0
+        version: 2.3.0
     devDependencies:
       '@antfu/utils':
         specifier: ^9.1.0
@@ -2161,8 +2158,8 @@ packages:
     resolution: {integrity: sha512-8U/MtpkPkkk3Atewj1+RcKIjb5WBimZ/WSLhhR3w6SsIj8XJuKTacSP8g+2JhfSGw0Cb125Y+2zA/IzJZDVbhA==}
     engines: {node: '>=18.12.0'}
 
-  unplugin@2.2.0:
-    resolution: {integrity: sha512-m1ekpSwuOT5hxkJeZGRxO7gXbXT3gF26NjQ7GdVHoLoF8/nopLcd/QfPigpCy7i51oFHiRJg/CyHhj4vs2+KGw==}
+  unplugin@2.3.0:
+    resolution: {integrity: sha512-zNTDfbzOZzkbgXvH1QgQFW5nAyvjA0q3q9FGPFx2sKpDnaoU09VP1wT1mE+LYa6EF2rfezfd1y2EPLLR8ka6nw==}
     engines: {node: '>=18.12.0'}
 
   update-browserslist-db@1.1.3:
@@ -4524,7 +4521,7 @@ snapshots:
       magic-string: 0.30.17
       oxc-parser: 0.57.0
       oxc-transform: 0.57.0
-      unplugin: 2.2.0
+      unplugin: 2.3.0
       unplugin-utils: 0.2.4
     optionalDependencies:
       typescript: 5.8.2
@@ -4536,9 +4533,10 @@ snapshots:
       pathe: 2.0.3
       picomatch: 4.0.2
 
-  unplugin@2.2.0:
+  unplugin@2.3.0:
     dependencies:
       acorn: 8.14.1
+      picomatch: 4.0.2
       webpack-virtual-modules: 0.6.2
 
   update-browserslist-db@1.1.3(browserslist@4.24.4):
