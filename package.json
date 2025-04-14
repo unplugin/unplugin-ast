@@ -1,6 +1,6 @@
 {
   "name": "unplugin-ast",
-  "version": "0.14.5",
+  "version": "0.14.6",
   "packageManager": "pnpm@10.8.0",
   "description": "Manipulate the AST to transform your code.",
   "type": "module",
