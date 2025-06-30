@@ -64,7 +64,7 @@
   "dependencies": {
     "@babel/generator": "^7.27.1",
     "ast-kit": "^2.0.0",
-    "magic-string-ast": "^0.9.1",
+    "magic-string-ast": "^1.0.0",
     "unplugin": "^2.3.2"
   },
   "devDependencies": {
