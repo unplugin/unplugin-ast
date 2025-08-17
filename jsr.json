@@ -1,6 +1,6 @@
 {
   "name": "@unplugin/ast",
-  "version": "0.15.1",
+  "version": "0.15.2",
   "exports": {
     ".": "./src/index.ts",
     "./esbuild": "./src/esbuild.ts",
