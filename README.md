@@ -1,6 +1,9 @@
-# unplugin-ast [![npm](https://img.shields.io/npm/v/unplugin-ast.svg)](https://npmjs.com/package/unplugin-ast) [![jsr](https://jsr.io/badges/@unplugin/ast)](https://jsr.io/@unplugin/ast)
+# unplugin-ast
 
-[![Unit Test](https://github.com/unplugin/unplugin-ast/actions/workflows/unit-test.yml/badge.svg)](https://github.com/unplugin/unplugin-ast/actions/workflows/unit-test.yml)
+[![npm version][npm-version-src]][npm-version-href]
+[![npm downloads][npm-downloads-src]][npm-downloads-href]
+[![JSR][jsr-src]][jsr-href]
+[![Unit Test][unit-test-src]][unit-test-href]
 
 Manipulate the AST to transform your code.
 
@@ -167,3 +170,14 @@ export const RemoveWrapperFunction = (
 ## License
 
 [MIT](./LICENSE) License © 2022-PRESENT [三咲智子](https://github.com/sxzz)
+
+<!-- Badges -->
+
+[npm-version-src]: https://img.shields.io/npm/v/unplugin-ast.svg
+[npm-version-href]: https://npmjs.com/package/unplugin-ast
+[npm-downloads-src]: https://img.shields.io/npm/dm/unplugin-ast
+[npm-downloads-href]: https://www.npmcharts.com/compare/unplugin-ast?interval=30
+[jsr-src]: https://jsr.io/badges/@unplugin/ast
+[jsr-href]: https://jsr.io/@unplugin/ast
+[unit-test-src]: https://github.com/unplugin/unplugin-ast/actions/workflows/unit-test.yml/badge.svg
+[unit-test-href]: https://github.com/unplugin/unplugin-ast/actions/workflows/unit-test.yml
