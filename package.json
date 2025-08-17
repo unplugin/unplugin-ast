@@ -1,7 +1,7 @@
 {
   "name": "unplugin-ast",
   "version": "0.15.1",
-  "packageManager": "pnpm@10.13.1",
+  "packageManager": "pnpm@10.14.0",
   "description": "Manipulate the AST to transform your code.",
   "type": "module",
   "keywords": [
@@ -58,31 +58,31 @@
     "dev": "tsdown --watch",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
-    "release": "bumpp && pnpm publish",
+    "release": "bumpp",
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
-    "@babel/generator": "^7.28.0",
-    "ast-kit": "^2.1.1",
-    "magic-string-ast": "^1.0.0",
-    "unplugin": "^2.3.5"
+    "@babel/generator": "^7.28.3",
+    "ast-kit": "^2.1.2",
+    "magic-string-ast": "^1.0.2",
+    "unplugin": "^2.3.6"
   },
   "devDependencies": {
     "@antfu/utils": "^9.2.0",
-    "@babel/parser": "^7.28.0",
-    "@babel/types": "^7.28.1",
-    "@sxzz/eslint-config": "^7.0.6",
+    "@babel/parser": "^7.28.3",
+    "@babel/types": "^7.28.2",
+    "@sxzz/eslint-config": "^7.1.2",
     "@sxzz/prettier-config": "^2.2.3",
     "@types/babel__generator": "^7.27.0",
-    "@types/node": "^24.0.14",
-    "bumpp": "^10.2.0",
-    "eslint": "^9.31.0",
+    "@types/node": "^24.3.0",
+    "bumpp": "^10.2.3",
+    "eslint": "^9.33.0",
     "prettier": "^3.6.2",
-    "rollup": "^4.45.1",
-    "tsdown": "^0.12.9",
-    "tsx": "^4.20.3",
-    "typescript": "^5.8.3",
-    "vite": "^7.0.5",
+    "rollup": "^4.46.2",
+    "tsdown": "^0.14.1",
+    "tsx": "^4.20.4",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.2",
     "vitest": "^3.2.4"
   },
   "engines": {
