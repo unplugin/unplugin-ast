@@ -2,7 +2,7 @@ import { babelParse, getLang, walkASTAsync } from 'ast-kit'
 import {
   generateTransform,
   MagicStringAST,
-  type SourceMap,
+  type CodeTransform,
 } from 'magic-string-ast'
 import { useNodeRef } from './utils'
 import type { OptionsResolved } from './options'
@@ -29,7 +29,7 @@ export async function transform(
   code: string,
   id: string,
   options: Pick<OptionsResolved, 'parserOptions' | 'transformer'>,
-): Promise<{ code: string; map: SourceMap } | undefined> {
+): Promise<CodeTransform | undefined> {
   const { getNodeRef } = useNodeRef()
 
   const transformers = await getTransformersByFile(options.transformer, id)

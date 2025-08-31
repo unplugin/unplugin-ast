@@ -3,14 +3,14 @@
   "version": "0.15.2",
   "exports": {
     ".": "./src/index.ts",
+    "./ast-kit": "./src/ast-kit.ts",
     "./esbuild": "./src/esbuild.ts",
-    "./rollup": "./src/rollup.ts",
     "./rolldown": "./src/rolldown.ts",
-    "./vite": "./src/vite.ts",
-    "./webpack": "./src/webpack.ts",
+    "./rollup": "./src/rollup.ts",
     "./rspack": "./src/rspack.ts",
     "./transformers": "./src/transformers.ts",
-    "./ast-kit": "./src/ast-kit.ts"
+    "./vite": "./src/vite.ts",
+    "./webpack": "./src/webpack.ts"
   },
   "publish": {
     "include": [
