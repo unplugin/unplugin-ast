@@ -1,7 +1,7 @@
 {
   "name": "unplugin-ast",
   "version": "0.15.2",
-  "packageManager": "pnpm@10.15.0",
+  "packageManager": "pnpm@10.18.1",
   "description": "Manipulate the AST to transform your code.",
   "type": "module",
   "keywords": [
@@ -20,7 +20,7 @@
     "type": "git",
     "url": "git+https://github.com/unplugin/unplugin-ast.git"
   },
-  "author": "三咲智子 Kevin Deng <sxzz@sxzz.moe>",
+  "author": "Kevin Deng <sxzz@sxzz.moe>",
   "funding": "https://github.com/sponsors/sxzz",
   "files": [
     "dist"
@@ -63,30 +63,30 @@
   },
   "dependencies": {
     "@babel/generator": "^7.28.3",
-    "ast-kit": "^2.1.2",
-    "magic-string-ast": "^1.0.2",
+    "ast-kit": "^2.1.3",
+    "magic-string-ast": "^1.0.3",
     "unplugin": "^2.3.10"
   },
   "devDependencies": {
-    "@antfu/utils": "^9.2.0",
-    "@babel/parser": "^7.28.3",
-    "@babel/types": "^7.28.2",
-    "@sxzz/eslint-config": "^7.1.4",
+    "@antfu/utils": "^9.3.0",
+    "@babel/parser": "^7.28.4",
+    "@babel/types": "^7.28.4",
+    "@sxzz/eslint-config": "^7.2.7",
     "@sxzz/prettier-config": "^2.2.4",
     "@types/babel__generator": "^7.27.0",
-    "@types/node": "^24.3.0",
-    "bumpp": "^10.2.3",
-    "eslint": "^9.34.0",
+    "@types/node": "^24.7.0",
+    "bumpp": "^10.3.1",
+    "eslint": "^9.37.0",
     "prettier": "^3.6.2",
-    "rollup": "^4.50.0",
-    "tsdown": "^0.14.2",
-    "tsx": "^4.20.5",
-    "typescript": "^5.9.2",
-    "vite": "^7.1.3",
+    "rollup": "^4.52.4",
+    "tsdown": "^0.15.6",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.9",
     "vitest": "^3.2.4"
   },
   "engines": {
-    "node": ">=20.18.0"
+    "node": ">=20.19.0"
   },
   "prettier": "@sxzz/prettier-config"
 }
