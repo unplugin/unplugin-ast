@@ -133,7 +133,7 @@ test('get File', async () => {
   await transform(source, 'foo.js', options)
 })
 
-test.skip('overwrite part', async () => {
+test.fails('overwrite part', async () => {
   const source = `const str = fn(foo + bar)`
   const options: Pick<OptionsResolved, 'parserOptions' | 'transformer'> = {
     transformer: [RemoveWrapperFunction('fn'), changeVarName],
