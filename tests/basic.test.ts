@@ -4,6 +4,7 @@ import { RemoveWrapperFunction } from '../src/transformers'
 import type { OptionsResolved } from '../src/core/options'
 import type { Transformer } from '../src/core/types'
 import type {
+  File,
   Identifier,
   NumericLiteral,
   Statement,
@@ -111,6 +112,25 @@ test('remove node', async () => {
     "
     let i = 10;{}"
   `)
+})
+
+test('get File', async () => {
+  expect.assertions(1)
+
+  const source = `123`
+  const options: Pick<OptionsResolved, 'parserOptions' | 'transformer'> = {
+    transformer: [],
+    parserOptions: {},
+  }
+  options.transformer = [
+    {
+      onNode: (node) => node.type === 'File',
+      transform(node: File): undefined {
+        expect(node.type).toBe('File')
+      },
+    },
+  ]
+  await transform(source, 'foo.js', options)
 })
 
 test.skip('overwrite part', async () => {

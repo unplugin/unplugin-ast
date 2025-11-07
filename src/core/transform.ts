@@ -1,4 +1,10 @@
-import { babelParse, getLang, walkASTAsync } from 'ast-kit'
+import {
+  babelParse,
+  babelParseFile,
+  getBabelParserOptions,
+  getLang,
+  walkASTAsync,
+} from 'ast-kit'
 import {
   generateTransform,
   MagicStringAST,
@@ -35,9 +41,12 @@ export async function transform(
   const transformers = await getTransformersByFile(options.transformer, id)
   if (transformers.length === 0) return
 
-  const program = babelParse(code, getLang(id), options.parserOptions)
+  const file = babelParseFile(
+    code,
+    getBabelParserOptions(getLang(id), options.parserOptions),
+  )
 
-  await walkASTAsync(program, {
+  await walkASTAsync(file, {
     async enter(node, parent, key, index) {
       for (const { transformer, nodes } of transformers) {
         if (transformer.onNode) {

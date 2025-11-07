@@ -1,7 +1,7 @@
 {
   "name": "unplugin-ast",
   "version": "0.15.3",
-  "packageManager": "pnpm@10.18.1",
+  "packageManager": "pnpm@10.20.0",
   "description": "Manipulate the AST to transform your code.",
   "type": "module",
   "keywords": [
@@ -25,19 +25,19 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "exports": {
-    ".": "./dist/index.js",
-    "./ast-kit": "./dist/ast-kit.js",
-    "./esbuild": "./dist/esbuild.js",
-    "./rolldown": "./dist/rolldown.js",
-    "./rollup": "./dist/rollup.js",
-    "./rspack": "./dist/rspack.js",
-    "./transformers": "./dist/transformers.js",
-    "./vite": "./dist/vite.js",
-    "./webpack": "./dist/webpack.js",
+    ".": "./dist/index.mjs",
+    "./ast-kit": "./dist/ast-kit.mjs",
+    "./esbuild": "./dist/esbuild.mjs",
+    "./rolldown": "./dist/rolldown.mjs",
+    "./rollup": "./dist/rollup.mjs",
+    "./rspack": "./dist/rspack.mjs",
+    "./transformers": "./dist/transformers.mjs",
+    "./vite": "./dist/vite.mjs",
+    "./webpack": "./dist/webpack.mjs",
     "./package.json": "./package.json"
   },
   "typesVersions": {
@@ -62,28 +62,28 @@
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
-    "@babel/generator": "^7.28.3",
-    "ast-kit": "^2.1.3",
+    "@babel/generator": "^7.28.5",
+    "ast-kit": "^2.2.0",
     "magic-string-ast": "^1.0.3",
     "unplugin": "^2.3.10"
   },
   "devDependencies": {
     "@antfu/utils": "^9.3.0",
-    "@babel/parser": "^7.28.4",
-    "@babel/types": "^7.28.4",
-    "@sxzz/eslint-config": "^7.2.7",
+    "@babel/parser": "^7.28.5",
+    "@babel/types": "^7.28.5",
+    "@sxzz/eslint-config": "^7.2.8",
     "@sxzz/prettier-config": "^2.2.4",
     "@types/babel__generator": "^7.27.0",
-    "@types/node": "^24.7.0",
+    "@types/node": "^24.10.0",
     "bumpp": "^10.3.1",
-    "eslint": "^9.37.0",
+    "eslint": "^9.39.1",
     "prettier": "^3.6.2",
-    "rollup": "^4.52.4",
-    "tsdown": "^0.15.6",
+    "rollup": "^4.53.0",
+    "tsdown": "^0.16.1",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
-    "vite": "^7.1.9",
-    "vitest": "^3.2.4"
+    "vite": "^7.2.2",
+    "vitest": "^4.0.8"
   },
   "engines": {
     "node": ">=20.19.0"
