@@ -1,9 +1,20 @@
 {
   "name": "unplugin-ast",
+  "type": "module",
   "version": "0.15.4",
   "packageManager": "pnpm@10.26.1",
   "description": "Manipulate the AST to transform your code.",
-  "type": "module",
+  "author": "Kevin Deng <sxzz@sxzz.moe>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/sxzz",
+  "homepage": "https://github.com/unplugin/unplugin-ast#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unplugin/unplugin-ast.git"
+  },
+  "bugs": {
+    "url": "https://github.com/unplugin/unplugin-ast/issues"
+  },
   "keywords": [
     "unplugin",
     "rollup",
@@ -11,23 +22,6 @@
     "esbuild",
     "webpack"
   ],
-  "license": "MIT",
-  "homepage": "https://github.com/unplugin/unplugin-ast#readme",
-  "bugs": {
-    "url": "https://github.com/unplugin/unplugin-ast/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/unplugin/unplugin-ast.git"
-  },
-  "author": "Kevin Deng <sxzz@sxzz.moe>",
-  "funding": "https://github.com/sponsors/sxzz",
-  "files": [
-    "dist"
-  ],
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.mts",
   "exports": {
     ".": "./dist/index.mjs",
     "./ast-kit": "./dist/ast-kit.mjs",
@@ -40,6 +34,9 @@
     "./webpack": "./dist/webpack.mjs",
     "./package.json": "./package.json"
   },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "typesVersions": {
     "*": {
       "*": [
@@ -48,8 +45,14 @@
       ]
     }
   },
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public"
+  },
+  "engines": {
+    "node": ">=20.19.0"
   },
   "scripts": {
     "lint": "eslint .",
@@ -83,9 +86,6 @@
     "typescript": "^5.9.3",
     "vite": "^7.3.0",
     "vitest": "^4.0.16"
-  },
-  "engines": {
-    "node": ">=20.19.0"
   },
   "prettier": "@sxzz/prettier-config"
 }
