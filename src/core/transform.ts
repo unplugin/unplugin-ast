@@ -79,8 +79,7 @@ export async function transform(
           newAST.start = value.start!
           newAST.end = value.end!
         } else {
-          // eslint-disable-next-line @typescript-eslint/no-require-imports
-          const { generate } = require('@babel/generator')
+          const { generate } = await import('@babel/generator')
           const generated = generate(result)
           let code = generated.code
           if (result.type.endsWith('Expression')) code = `(${code})`

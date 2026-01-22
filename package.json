@@ -34,8 +34,6 @@
     "./webpack": "./dist/webpack.mjs",
     "./package.json": "./package.json"
   },
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "typesVersions": {
     "*": {
@@ -65,18 +63,17 @@
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
-    "@babel/generator": "^7.28.6",
-    "ast-kit": "^2.2.0",
+    "@babel/generator": "^8.0.0-beta.4",
+    "@babel/parser": "^8.0.0-beta.4",
+    "@babel/types": "^8.0.0-beta.4",
+    "ast-kit": "^3.0.0-beta.1",
     "magic-string-ast": "^1.0.3",
-    "unplugin": "^2.3.11"
+    "unplugin": "^3.0.0"
   },
   "devDependencies": {
     "@antfu/utils": "^9.3.0",
-    "@babel/parser": "^7.28.6",
-    "@babel/types": "^7.28.6",
     "@sxzz/eslint-config": "^7.5.0",
     "@sxzz/prettier-config": "^2.2.6",
-    "@types/babel__generator": "^7.27.0",
     "@types/node": "^25.0.10",
     "bumpp": "^10.4.0",
     "eslint": "^9.39.2",
