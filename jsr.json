@@ -1,6 +1,6 @@
 {
   "name": "@unplugin/ast",
-  "version": "0.15.4",
+  "version": "0.16.0",
   "exports": {
     ".": "./src/index.ts",
     "./ast-kit": "./src/ast-kit.ts",
