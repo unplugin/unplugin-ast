@@ -2,7 +2,7 @@
   "name": "unplugin-ast",
   "type": "module",
   "version": "0.15.4",
-  "packageManager": "pnpm@10.26.1",
+  "packageManager": "pnpm@10.28.1",
   "description": "Manipulate the AST to transform your code.",
   "author": "Kevin Deng <sxzz@sxzz.moe>",
   "license": "MIT",
@@ -65,27 +65,27 @@
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
-    "@babel/generator": "^7.28.5",
+    "@babel/generator": "^7.28.6",
     "ast-kit": "^2.2.0",
     "magic-string-ast": "^1.0.3",
     "unplugin": "^2.3.11"
   },
   "devDependencies": {
     "@antfu/utils": "^9.3.0",
-    "@babel/parser": "^7.28.5",
-    "@babel/types": "^7.28.5",
-    "@sxzz/eslint-config": "^7.4.3",
+    "@babel/parser": "^7.28.6",
+    "@babel/types": "^7.28.6",
+    "@sxzz/eslint-config": "^7.5.0",
     "@sxzz/prettier-config": "^2.2.6",
     "@types/babel__generator": "^7.27.0",
-    "@types/node": "^25.0.3",
-    "bumpp": "^10.3.2",
+    "@types/node": "^25.0.10",
+    "bumpp": "^10.4.0",
     "eslint": "^9.39.2",
-    "prettier": "^3.7.4",
-    "rollup": "^4.54.0",
-    "tsdown": "^0.18.2",
+    "prettier": "^3.8.1",
+    "rollup": "^4.56.0",
+    "tsdown": "^0.20.0",
     "typescript": "^5.9.3",
-    "vite": "^7.3.0",
-    "vitest": "^4.0.16"
+    "vite": "^7.3.1",
+    "vitest": "^4.0.17"
   },
   "prettier": "@sxzz/prettier-config"
 }
