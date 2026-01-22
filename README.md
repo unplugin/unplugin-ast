@@ -42,14 +42,28 @@ export default {
 <br></details>
 
 <details>
+<summary>Rolldown / tsdown</summary><br>
+
+```ts
+// rolldown.config.ts / tsdown.config.ts
+import AST from 'unplugin-ast/rolldown'
+
+export default {
+  plugins: [AST()],
+}
+```
+
+<br></details>
+
+<details>
 <summary>esbuild</summary><br>
 
 ```ts
-// esbuild.config.js
 import { build } from 'esbuild'
+import AST from 'unplugin-ast/esbuild'
 
 build({
-  plugins: [require('unplugin-ast/esbuild')()],
+  plugins: [AST()],
 })
 ```
 
@@ -58,11 +72,28 @@ build({
 <details>
 <summary>Webpack</summary><br>
 
-```ts
+```js
 // webpack.config.js
-module.exports = {
+import AST from 'unplugin-ast/webpack'
+
+export default {
   /* ... */
-  plugins: [require('unplugin-ast/webpack')()],
+  plugins: [AST()],
+}
+```
+
+<br></details>
+
+<details>
+<summary>Rspack</summary><br>
+
+```ts
+// rspack.config.js
+import AST from 'unplugin-ast/rspack'
+
+export default {
+  /* ... */
+  plugins: [AST()],
 }
 ```
 
