@@ -23,15 +23,15 @@
     "webpack"
   ],
   "exports": {
-    ".": "./dist/index.mjs",
-    "./ast-kit": "./dist/ast-kit.mjs",
-    "./esbuild": "./dist/esbuild.mjs",
-    "./rolldown": "./dist/rolldown.mjs",
-    "./rollup": "./dist/rollup.mjs",
-    "./rspack": "./dist/rspack.mjs",
-    "./transformers": "./dist/transformers.mjs",
-    "./vite": "./dist/vite.mjs",
-    "./webpack": "./dist/webpack.mjs",
+    ".": "./dist/index.js",
+    "./ast-kit": "./dist/ast-kit.js",
+    "./esbuild": "./dist/esbuild.js",
+    "./rolldown": "./dist/rolldown.js",
+    "./rollup": "./dist/rollup.js",
+    "./rspack": "./dist/rspack.js",
+    "./transformers": "./dist/transformers.js",
+    "./vite": "./dist/vite.js",
+    "./webpack": "./dist/webpack.js",
     "./package.json": "./package.json"
   },
   "types": "./dist/index.d.mts",
@@ -80,6 +80,7 @@
     "prettier": "^3.8.1",
     "rollup": "^4.56.0",
     "tsdown": "^0.20.0",
+    "tsdown-preset-sxzz": "^0.3.1",
     "typescript": "^5.9.3",
     "vite": "^7.3.1",
     "vitest": "^4.0.17"

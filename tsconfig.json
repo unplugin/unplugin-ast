@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "lib": ["es2022"],
+    "lib": ["es2023"],
     "moduleDetection": "force",
     "module": "preserve",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
-    "types": ["node"],
+    "types": [],
     "strict": true,
     "noUnusedLocals": true,
     "declaration": true,
