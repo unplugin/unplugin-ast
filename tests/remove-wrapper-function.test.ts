@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest'
-import { transform } from '../src/core/transform'
-import { RemoveWrapperFunction } from '../src/transformers'
-import type { OptionsResolved } from '../src/core/options'
+import { transform } from '../src/core/transform.ts'
+import { RemoveWrapperFunction } from '../src/transformers.ts'
+import type { OptionsResolved } from '../src/core/options.ts'
 
 test('remove wrapper function', async () => {
   const source = `const comp = defineComponent({

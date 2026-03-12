@@ -4,7 +4,7 @@
  * @module
  */
 
-import { AST } from './index'
+import { AST } from './index.ts'
 
 /**
  * Rolldown plugin

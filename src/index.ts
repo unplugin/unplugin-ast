@@ -1,6 +1,6 @@
 import { createUnplugin, type UnpluginInstance } from 'unplugin'
-import { resolveOptions, type Options } from './core/options'
-import { transform } from './core/transform'
+import { resolveOptions, type Options } from './core/options.ts'
+import { transform } from './core/transform.ts'
 
 export const AST: UnpluginInstance<Options, false> = createUnplugin(
   (userOptions = {}) => {
@@ -21,6 +21,6 @@ export const AST: UnpluginInstance<Options, false> = createUnplugin(
   },
 )
 
-export * from './core/options'
-export * from './core/transform'
-export * from './core/types'
+export * from './core/options.ts'
+export * from './core/transform.ts'
+export * from './core/types.ts'

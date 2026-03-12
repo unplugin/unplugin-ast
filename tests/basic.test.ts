@@ -1,8 +1,8 @@
 import { expect, test } from 'vitest'
-import { transform } from '../src/core/transform'
-import { RemoveWrapperFunction } from '../src/transformers'
-import type { OptionsResolved } from '../src/core/options'
-import type { Transformer } from '../src/core/types'
+import { transform } from '../src/core/transform.ts'
+import { RemoveWrapperFunction } from '../src/transformers.ts'
+import type { OptionsResolved } from '../src/core/options.ts'
+import type { Transformer } from '../src/core/types.ts'
 import type {
   File,
   Identifier,

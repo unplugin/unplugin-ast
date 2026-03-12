@@ -1,5 +1,5 @@
 import { toArray, type Arrayable } from '@antfu/utils'
-import type { Transformer } from './types'
+import type { Transformer } from './types.ts'
 import type { ParserOptions } from '@babel/parser'
 import type { FilterPattern } from 'unplugin'
 

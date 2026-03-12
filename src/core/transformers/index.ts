@@ -1,2 +1,2 @@
-export { RemoveNode } from './remove-node'
-export { RemoveWrapperFunction } from './remove-wrapper-function'
+export { RemoveNode } from './remove-node.ts'
+export { RemoveWrapperFunction } from './remove-wrapper-function.ts'

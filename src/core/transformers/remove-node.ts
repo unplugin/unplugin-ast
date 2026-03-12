@@ -1,4 +1,4 @@
-import type { Transformer } from '../types'
+import type { Transformer } from '../types.ts'
 import type { Awaitable } from '@antfu/utils'
 import type { Node } from '@babel/types'
 

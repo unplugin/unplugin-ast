@@ -1,6 +1,6 @@
 import { toArray, type Arrayable } from '@antfu/utils'
 import { isCallOf, isTaggedFunctionCallOf } from 'ast-kit'
-import type { Transformer } from '../types'
+import type { Transformer } from '../types.ts'
 import type { CallExpression, TaggedTemplateExpression } from '@babel/types'
 
 /**

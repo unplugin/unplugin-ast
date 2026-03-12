@@ -10,9 +10,9 @@ import {
   MagicStringAST,
   type CodeTransform,
 } from 'magic-string-ast'
-import { useNodeRef } from './utils'
-import type { OptionsResolved } from './options'
-import type { Transformer, TransformerParsed } from './types'
+import { useNodeRef } from './utils.ts'
+import type { OptionsResolved } from './options.ts'
+import type { Transformer, TransformerParsed } from './types.ts'
 import type { BlockStatement, Node } from '@babel/types'
 
 async function getTransformersByFile(transformer: Transformer[], id: string) {

@@ -1,4 +1,4 @@
-import type { NodeRef } from './types'
+import type { NodeRef } from './types.ts'
 import type { Node } from '@babel/types'
 
 export function useNodeRef(): {
