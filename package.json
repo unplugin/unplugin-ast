@@ -66,7 +66,7 @@
   },
   "devDependencies": {
     "@antfu/utils": "^9.3.0",
-    "@sxzz/eslint-config": "^7.8.3",
+    "@sxzz/eslint-config": "^8.0.0",
     "@sxzz/prettier-config": "^2.3.1",
     "@types/node": "^25.5.0",
     "@typescript/native-preview": "7.0.0-dev.20260312.1",
