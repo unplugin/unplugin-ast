@@ -1,7 +1,7 @@
 {
   "name": "unplugin-ast",
   "type": "module",
-  "version": "0.16.0",
+  "version": "0.17.0",
   "packageManager": "pnpm@11.0.4",
   "description": "Manipulate the AST to transform your code.",
   "author": "Kevin Deng <sxzz@sxzz.moe>",
