@@ -28,11 +28,9 @@ test('remove wrapper function', async () => {
   }
   const code = (await transform(source, 'foo.ts', options))?.code
   expect(code).toMatchInlineSnapshot(`
-    "const comp = ({
-      render() {
-        return [];
-      }
-    })
+    "const comp = ({ render() {
+      return [];
+    } })
       console.log(({} as const))
       console.log(() => ({} as const))
 

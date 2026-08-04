@@ -1,7 +1,7 @@
-import { isCallOf } from 'ast-kit'
 import { expect, test } from 'vitest'
 import { transform } from '../src/core/transform.ts'
 import { RemoveNode } from '../src/transformers.ts'
+import { ast } from '../src/yuku.ts'
 import type { OptionsResolved } from '../src/core/options.ts'
 
 test('remove node', async () => {
@@ -16,7 +16,8 @@ test('remove node', async () => {
   const options: Pick<OptionsResolved, 'parserOptions' | 'transformer'> = {
     transformer: [
       RemoveNode(
-        (node) => node.type === 'ReturnStatement' || isCallOf(node, 'mutable'),
+        (node) =>
+          node.type === 'ReturnStatement' || ast.isCallOf(node, 'mutable'),
       ),
     ],
     parserOptions: {},

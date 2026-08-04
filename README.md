@@ -112,7 +112,7 @@ AST({
   // Rollup and esbuild do not support using enforce to control the order of plugins. Users need to maintain the order manually.
   enforce: undefined,
 
-  // https://babeljs.io/docs/en/babel-parser#options
+  // https://yuku.fyi/parser/#options
   parserOptions: {},
 
   // Refer to Custom Transformers belows
@@ -121,6 +121,15 @@ AST({
 ```
 
 ## Transformers
+
+AST nodes follow ESTree / TypeScript-ESTree. Yuku's typed guards, builders,
+walker, and utilities are available from the `ast` namespace, while its types
+are directly exported from `unplugin-ast/yuku`. No additional Yuku packages are
+required.
+
+```ts
+import { ast, type CallExpression } from 'unplugin-ast/yuku'
+```
 
 ### Built-in Transformers
 
@@ -138,7 +147,7 @@ import { RemoveWrapperFunction } from 'unplugin-ast/transformers'
  */
 export function RemoveWrapperFunction(
   functionNames: Arrayable<string>,
-): Transformer<CallExpression>
+): Transformer<CallExpression | TaggedTemplateExpression>
 ```
 
 Transforms:
@@ -173,8 +182,8 @@ export function RemoveNode(
 ### Custom Transformers
 
 ```ts
-import type { CallExpression } from '@babel/types'
 import type { Transformer } from 'unplugin-ast'
+import type { CallExpression } from 'unplugin-ast/yuku'
 
 export const RemoveWrapperFunction = (
   functionNames: string[],

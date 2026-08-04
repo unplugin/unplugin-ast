@@ -1,5 +1,5 @@
 import type { NodeRef } from './types.ts'
-import type { Node } from '@babel/types'
+import type { Node } from 'yuku-parser'
 
 export function useNodeRef(): {
   nodeRefs: Map<Node, NodeRef<Node | undefined>>

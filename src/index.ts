@@ -2,7 +2,7 @@ import { createUnplugin, type UnpluginInstance } from 'unplugin'
 import { resolveOptions, type Options } from './core/options.ts'
 import { transform } from './core/transform.ts'
 
-export const AST: UnpluginInstance<Options, false> = createUnplugin(
+export const AST: UnpluginInstance<Options | undefined, false> = createUnplugin(
   (userOptions = {}) => {
     const { include, exclude, enforce, ...options } =
       resolveOptions(userOptions)
@@ -13,9 +13,7 @@ export const AST: UnpluginInstance<Options, false> = createUnplugin(
       enforce,
       transform: {
         filter: { id: { include, exclude } },
-        handler(code, id) {
-          return transform(code, id, options)
-        },
+        handler: (code, id) => transform(code, id, options),
       },
     }
   },

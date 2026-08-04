@@ -1,6 +1,6 @@
 import type { Transformer } from '../types.ts'
 import type { Awaitable } from '@antfu/utils'
-import type { Node } from '@babel/types'
+import type { Node } from 'yuku-parser'
 
 /**
  * Removes arbitrary nodes.

@@ -1,13 +1,13 @@
 import { toArray, type Arrayable } from '@antfu/utils'
 import type { Transformer } from './types.ts'
-import type { ParserOptions } from '@babel/parser'
 import type { FilterPattern } from 'unplugin'
+import type { ParseOptions } from 'yuku-parser'
 
 export interface Options {
   include?: FilterPattern
   exclude?: FilterPattern
   enforce?: 'post' | 'pre' | undefined
-  parserOptions?: ParserOptions
+  parserOptions?: ParseOptions
   transformer?: Arrayable<Transformer<any>>
 }
 

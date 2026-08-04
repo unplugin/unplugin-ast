@@ -24,7 +24,6 @@
   ],
   "exports": {
     ".": "./dist/index.js",
-    "./ast-kit": "./dist/ast-kit.js",
     "./esbuild": "./dist/esbuild.js",
     "./rolldown": "./dist/rolldown.js",
     "./rollup": "./dist/rollup.js",
@@ -32,6 +31,7 @@
     "./transformers": "./dist/transformers.js",
     "./vite": "./dist/vite.js",
     "./webpack": "./dist/webpack.js",
+    "./yuku": "./dist/yuku.js",
     "./package.json": "./package.json"
   },
   "files": [
@@ -41,7 +41,7 @@
     "access": "public"
   },
   "engines": {
-    "node": "^22.18.0 || >=24.11.0"
+    "node": "^22.18.0 || ^24.11.0 || >=26.0.0"
   },
   "scripts": {
     "lint": "eslint .",
@@ -54,12 +54,12 @@
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
-    "@babel/generator": "^8.0.0",
-    "@babel/parser": "^8.0.0",
-    "@babel/types": "^8.0.0",
-    "ast-kit": "^3.0.0",
+    "@yuku-toolchain/types": "^0.8.3",
     "magic-string-ast": "^2.0.0",
-    "unplugin": "^3.0.0"
+    "unplugin": "^3.0.0",
+    "yuku-ast": "^0.8.3",
+    "yuku-codegen": "^0.8.3",
+    "yuku-parser": "^0.8.3"
   },
   "inlinedDependencies": {
     "@antfu/utils": "9.3.0"

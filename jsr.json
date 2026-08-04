@@ -3,14 +3,14 @@
   "version": "0.17.2",
   "exports": {
     ".": "./src/index.ts",
-    "./ast-kit": "./src/ast-kit.ts",
     "./esbuild": "./src/esbuild.ts",
     "./rolldown": "./src/rolldown.ts",
     "./rollup": "./src/rollup.ts",
     "./rspack": "./src/rspack.ts",
     "./transformers": "./src/transformers.ts",
     "./vite": "./src/vite.ts",
-    "./webpack": "./src/webpack.ts"
+    "./webpack": "./src/webpack.ts",
+    "./yuku": "./src/yuku.ts"
   },
   "publish": {
     "include": [

@@ -1,19 +1,53 @@
 import {
-  babelParse,
-  babelParseFile,
-  getBabelParserOptions,
-  getLang,
-  walkASTAsync,
-} from 'ast-kit'
-import {
   generateTransform,
   MagicStringAST,
   type CodeTransform,
 } from 'magic-string-ast'
+import { walkAsync } from 'yuku-ast'
+import {
+  langFromPath,
+  parse,
+  sourceTypeFromPath,
+  type Node,
+  type ParseOptions,
+  type Program,
+} from 'yuku-parser'
 import { useNodeRef } from './utils.ts'
 import type { OptionsResolved } from './options.ts'
 import type { Transformer, TransformerParsed } from './types.ts'
-import type { BlockStatement, Node } from '@babel/types'
+
+function parseProgram(code: string, id: string, parserOptions: ParseOptions) {
+  const path = id.replace(/[?#].*$/, '')
+  const langFromId = langFromPath(id)
+  const sourceTypeFromId = sourceTypeFromPath(id)
+  const result = parse(code, {
+    lang: langFromId === 'js' ? langFromPath(path) : langFromId,
+    sourceType:
+      sourceTypeFromId === 'module'
+        ? sourceTypeFromPath(path)
+        : sourceTypeFromId,
+    ...parserOptions,
+  })
+  const error = result.diagnostics.find(
+    (diagnostic) => diagnostic.severity === 'error',
+  )
+  if (error) {
+    throw new SyntaxError(`${error.message} (${id}:${error.start})`)
+  }
+  return result.program
+}
+
+function parseReplacement(
+  code: string,
+  id: string,
+  parserOptions: ParseOptions,
+): Node {
+  const block = parseProgram(`{${code}}`, id, parserOptions).body[0]
+  if (block?.type !== 'BlockStatement' || !block.body[0]) {
+    throw new SyntaxError('Transformer returned an empty replacement')
+  }
+  return block.body[0]
+}
 
 async function getTransformersByFile(transformer: Transformer[], id: string) {
   const transformers = (
@@ -39,18 +73,19 @@ export async function transform(
   const { getNodeRef } = useNodeRef()
 
   const transformers = await getTransformersByFile(options.transformer, id)
-  if (transformers.length === 0) return
+  if (!transformers.length) return
 
-  const file = babelParseFile(
-    code,
-    getBabelParserOptions(getLang(id), options.parserOptions),
-  )
+  const program = parseProgram(code, id, options.parserOptions)
 
-  await walkASTAsync(file, {
-    async enter(node, parent, key, index) {
+  await walkAsync(program, {
+    async enter(node, context) {
       for (const { transformer, nodes } of transformers) {
         if (transformer.onNode) {
-          const bool = await transformer.onNode?.(node, parent, index)
+          const bool = await transformer.onNode(
+            node,
+            context.parent,
+            context.index,
+          )
           if (!bool) continue
         }
         nodes.push(getNodeRef(node))
@@ -69,22 +104,23 @@ export async function transform(
         let newAST: Node
         if (typeof result === 'string') {
           s.overwriteNode(value, result)
-          newAST = (
-            babelParse(`{${result}}`, getLang(id), options.parserOptions)
-              .body[0] as BlockStatement
-          ).body[0]
+          newAST = parseReplacement(result, id, options.parserOptions)
           if (newAST.type === 'ExpressionStatement') {
             newAST = newAST.expression
           }
-          newAST.start = value.start!
-          newAST.end = value.end!
+          newAST.start = value.start
+          newAST.end = value.end
         } else {
-          const { generate } = await import('@babel/generator')
-          const generated = generate(result)
+          const { generate } = await import('yuku-codegen')
+          const generated = generate(result as Program)
           let code = generated.code
           if (result.type.endsWith('Expression')) code = `(${code})`
           s.overwriteNode(value, code)
-          newAST = result
+          newAST = {
+            ...result,
+            start: value.start,
+            end: value.end,
+          }
         }
 
         node.set(newAST)
