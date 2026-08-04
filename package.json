@@ -2,7 +2,7 @@
   "name": "unplugin-ast",
   "type": "module",
   "version": "0.17.2",
-  "packageManager": "pnpm@11.7.0",
+  "packageManager": "pnpm@11.20.0",
   "description": "Manipulate the AST to transform your code.",
   "author": "Kevin Deng <sxzz@sxzz.moe>",
   "license": "MIT",
@@ -55,8 +55,8 @@
   },
   "dependencies": {
     "@yuku-toolchain/types": "^0.8.3",
-    "magic-string-ast": "^2.0.0",
-    "unplugin": "^3.0.0",
+    "magic-string-ast": "^2.1.1",
+    "unplugin": "^3.3.0",
     "yuku-ast": "^0.8.3",
     "yuku-codegen": "^0.8.3",
     "yuku-parser": "^0.8.3"
@@ -66,19 +66,19 @@
   },
   "devDependencies": {
     "@antfu/utils": "^9.3.0",
-    "@sxzz/eslint-config": "^8.2.0",
-    "@sxzz/prettier-config": "^2.3.1",
-    "@types/node": "^25.9.3",
-    "@typescript/native-preview": "7.0.0-dev.20260616.1",
-    "bumpp": "^11.1.0",
-    "eslint": "^10.5.0",
-    "prettier": "^3.8.4",
-    "rollup": "^4.62.0",
-    "tsdown": "^0.22.2",
-    "tsdown-preset-sxzz": "^0.6.0",
+    "@sxzz/eslint-config": "^8.4.0",
+    "@sxzz/prettier-config": "^2.3.2",
+    "@types/node": "^26.1.2",
+    "@typescript/native-preview": "7.0.0-dev.20260707.2",
+    "bumpp": "^12.1.1",
+    "eslint": "^10.8.0",
+    "prettier": "^3.9.6",
+    "rollup": "^4.62.4",
+    "tsdown": "^0.22.14",
+    "tsdown-preset-sxzz": "^0.7.0",
     "typescript": "^6.0.3",
-    "vite": "^8.0.16",
-    "vitest": "^4.1.9"
+    "vite": "^8.2.0",
+    "vitest": "^4.1.10"
   },
   "prettier": "@sxzz/prettier-config"
 }
