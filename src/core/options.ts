@@ -4,6 +4,7 @@ import type { FilterPattern } from 'unplugin'
 import type { ParseOptions } from 'yuku-parser'
 
 export interface Options {
+  /** @default [/\.[jt]sx?$/] */
   include?: FilterPattern
   exclude?: FilterPattern
   enforce?: 'post' | 'pre' | undefined
