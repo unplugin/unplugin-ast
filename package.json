@@ -2,7 +2,7 @@
   "name": "unplugin-ast",
   "type": "module",
   "version": "0.18.1",
-  "packageManager": "pnpm@11.20.0",
+  "packageManager": "pnpm@11.22.0",
   "description": "Manipulate the AST to transform your code.",
   "author": "Kevin Deng <sxzz@sxzz.moe>",
   "license": "MIT",
@@ -54,12 +54,12 @@
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
-    "@yuku-toolchain/types": "^0.8.3",
+    "@yuku-toolchain/types": "^0.9.0",
     "magic-string-ast": "^2.1.1",
     "unplugin": "^3.3.0",
-    "yuku-ast": "^0.8.3",
-    "yuku-codegen": "^0.8.3",
-    "yuku-parser": "^0.8.3"
+    "yuku-ast": "^0.9.0",
+    "yuku-codegen": "^0.9.0",
+    "yuku-parser": "^0.9.0"
   },
   "inlinedDependencies": {
     "@antfu/utils": "9.3.0"
