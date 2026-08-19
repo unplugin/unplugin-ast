@@ -55,25 +55,25 @@ test('basic', async () => {
     transformer: [],
     parserOptions: {},
   }
-  let code = (await transform(source, 'foo.js', options))?.code
+  let code = (await transform(source, 'foo.js', options))?.toString()
   expect(code).toMatchInlineSnapshot('undefined')
 
   options.transformer = [changeString]
-  code = (await transform(source, 'foo.js', options))?.code
+  code = (await transform(source, 'foo.js', options))?.toString()
   expect(code).toMatchInlineSnapshot(`
     "const foo = 'Hello'
     let i = 10"
   `)
 
   options.transformer = [changeVarName]
-  code = (await transform(source, 'foo.js', options))?.code
+  code = (await transform(source, 'foo.js', options))?.toString()
   expect(code).toMatchInlineSnapshot(`
     "const newName = 'string'
     let i = 10"
   `)
 
   options.transformer = [changeString, changeVarName]
-  code = (await transform(source, 'foo.js', options))?.code
+  code = (await transform(source, 'foo.js', options))?.toString()
   expect(code).toMatchInlineSnapshot(`
     "const newName = 'Hello'
     let i = 10"
@@ -87,14 +87,14 @@ test('change twice', async () => {
     parserOptions: {},
   }
   options.transformer = [changeString, changeVarName, overwriteVarName]
-  let code = (await transform(source, 'foo.js', options))?.code
+  let code = (await transform(source, 'foo.js', options))?.toString()
   expect(code).toMatchInlineSnapshot(`
     "const overwrite_newName = 'Hello'
     let overwrite_i = 10"
   `)
 
   options.transformer = [timesTen, timesTen, timesTen]
-  code = (await transform(source, 'foo.js', options))?.code
+  code = (await transform(source, 'foo.js', options))?.toString()
   expect(code).toMatchInlineSnapshot(`
     "const foo = 'string'
     let i = 10000"
@@ -108,7 +108,7 @@ test('remove node', async () => {
     parserOptions: {},
   }
   options.transformer = [removeFirstStatement]
-  const code = (await transform(source, 'foo.js', options))?.code
+  const code = (await transform(source, 'foo.js', options))?.toString()
   expect(code).toMatchInlineSnapshot(`
     "
     let i = 10;{}"
@@ -147,7 +147,7 @@ test('transform with Yuku AST', async () => {
     ],
     parserOptions: {},
   }
-  const code = (await transform(source, 'foo.js', options))?.code
+  const code = (await transform(source, 'foo.js', options))?.toString()
   expect(code).toBe('const overwrite_renamed = 1')
 })
 
@@ -157,7 +157,7 @@ test('handles Unicode offsets', async () => {
     transformer: [changeVarName],
     parserOptions: {},
   }
-  const code = (await transform(source, 'foo.js', options))?.code
+  const code = (await transform(source, 'foo.js', options))?.toString()
   expect(code).toBe(`const 文 = '值'\nconst newName = 'string'`)
 })
 
@@ -168,7 +168,7 @@ test('detects language through query parameters', async () => {
     parserOptions: {},
   }
   for (const id of ['foo.ts?raw', 'foo.vue?vue&type=script&lang.ts']) {
-    const code = (await transform(source, id, options))?.code
+    const code = (await transform(source, id, options))?.toString()
     expect(code).toBe(`const foo: string = 'Hello'`)
   }
 })
@@ -190,7 +190,7 @@ test.fails('overwrite part', async () => {
     parserOptions: {},
   }
   expect(
-    (await transform(source, 'foo.js', options))?.code,
+    (await transform(source, 'foo.js', options))?.toString(),
   ).toMatchInlineSnapshot('undefined')
 })
 
@@ -209,7 +209,7 @@ test('rewrite statement', async () => {
       },
     },
   ]
-  const code = (await transform(source, 'foo.js', options))?.code
+  const code = (await transform(source, 'foo.js', options))?.toString()
   expect(code).toMatchInlineSnapshot(`
     "const foo = 'bar'; const bar = 'foo'
     let i = 10;{i++}"

@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`rolldown build 1`] = `
+"// basic.js
+const config = { test: {} };
+//#endregion
+export { config as default };
+"
+`;

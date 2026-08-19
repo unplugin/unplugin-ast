@@ -29,6 +29,6 @@ export function resolveOptions(options: Options): OptionsResolved {
     exclude: options.exclude || undefined,
     enforce: options.enforce || undefined,
     parserOptions: options.parserOptions || {},
-    transformer: options.transformer ? toArray(options.transformer) : [],
+    transformer: toArray(options.transformer),
   }
 }

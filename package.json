@@ -56,6 +56,7 @@
   "dependencies": {
     "@yuku-toolchain/types": "^0.8.3",
     "magic-string-ast": "^2.1.1",
+    "rolldown-string": "^0.3.1",
     "unplugin": "^3.3.0",
     "yuku-ast": "^0.8.3",
     "yuku-codegen": "^0.8.3",
@@ -68,6 +69,7 @@
     "@antfu/utils": "^9.3.0",
     "@sxzz/eslint-config": "^8.4.0",
     "@sxzz/prettier-config": "^2.3.2",
+    "@sxzz/test-utils": "^0.5.18",
     "@types/node": "^26.1.2",
     "@typescript/native-preview": "7.0.0-dev.20260707.2",
     "bumpp": "^12.1.1",

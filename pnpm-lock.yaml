@@ -14,6 +14,9 @@ importers:
       magic-string-ast:
         specifier: ^2.1.1
         version: 2.1.1
+      rolldown-string:
+        specifier: ^0.3.1
+        version: 0.3.1(rolldown@1.2.2)
       unplugin:
         specifier: ^3.3.0
         version: 3.3.0(rolldown@1.2.2)(rollup@4.62.4)(vite@8.2.0(@types/node@26.1.2)(jiti@2.7.0)(yaml@2.9.0))
@@ -36,6 +39,9 @@ importers:
       '@sxzz/prettier-config':
         specifier: ^2.3.2
         version: 2.3.2(prettier@3.9.6)
+      '@sxzz/test-utils':
+        specifier: ^0.5.18
+        version: 0.5.18(rolldown@1.2.2)(rollup@4.62.4)(typescript@6.0.3)(vitest@4.1.10(@types/node@26.1.2)(vite@8.2.0(@types/node@26.1.2)(jiti@2.7.0)(yaml@2.9.0)))
       '@types/node':
         specifier: ^26.1.2
         version: 26.1.2
@@ -635,6 +641,34 @@ packages:
       prettier-plugin-astro: ^0.14.1
     peerDependenciesMeta:
       prettier-plugin-astro:
+        optional: true
+
+  '@sxzz/test-utils@0.5.18':
+    resolution: {integrity: sha512-Od2KZMSzibfnNhcpniDVvPqyHOdx/UG1Wz9ZrJnH9zJx94deSZnIKaOF32Wzw3VaQMupQhrAEg1+B0uNYcA33Q==}
+    engines: {node: '>=20.19.0'}
+    peerDependencies:
+      '@ts-macro/language-plugin': '*'
+      '@volar/typescript': '*'
+      '@vue/language-core': ^3.1.0
+      esbuild: '>=0.20.0'
+      rolldown: '*'
+      rollup: ^4.1.0
+      typescript: ^5.8.0 || ^6.0.0
+      vitest: ^2.0.0 || ^3.0.0 || ^4.0.0
+    peerDependenciesMeta:
+      '@ts-macro/language-plugin':
+        optional: true
+      '@volar/typescript':
+        optional: true
+      '@vue/language-core':
+        optional: true
+      esbuild:
+        optional: true
+      rolldown:
+        optional: true
+      rollup:
+        optional: true
+      typescript:
         optional: true
 
   '@tybys/wasm-util@0.10.3':
@@ -1948,6 +1982,15 @@ packages:
       vue-tsc:
         optional: true
 
+  rolldown-string@0.3.1:
+    resolution: {integrity: sha512-dv8GOXkYqUQdI0rsXB8hmzO95pKWSuX2eg5/JSJa9czfEVIFuKNR7ZJDfat8LlmD35RAhWY+evS7/wXXqFDfSg==}
+    engines: {node: '>=20.19.0'}
+    peerDependencies:
+      rolldown: '*'
+    peerDependenciesMeta:
+      rolldown:
+        optional: true
+
   rolldown@1.2.2:
     resolution: {integrity: sha512-opwpo1tQBAcpSUJDt94B7hhLNGOKjCdE//XXjeLrnx9b83bjnw45tXdg1b09yEw/VLFBJGZpwRULMmOZo7ol+A==}
     engines: {node: ^20.19.0 || >=22.12.0}
@@ -2141,6 +2184,10 @@ packages:
 
   unist-util-visit@5.1.0:
     resolution: {integrity: sha512-m+vIdyeCOpdr/QeQCu2EzxX/ohgS8KbnPDgFni4dQsfSCtpz8UqDyY5GjRru8PDKuYn7Fq19j1CQ+nJSsGKOzg==}
+
+  unplugin-utils@0.3.2:
+    resolution: {integrity: sha512-xVToRh2CTmLk2HnEG7ac4rl1MJTT3RFkpS8B++/SnB0kXvuaavD+n3m/vrzyWQOdJNSZQACnbz01pnppbwV5BA==}
+    engines: {node: '>=20.19.0'}
 
   unplugin@3.3.0:
     resolution: {integrity: sha512-qa66K+crbfyE6JK10GjvbJeRrOsuC/JpbnHctfyp/i4oBTxWOzJfRZyDiOk1PtErMFRu8JhsU/wPvOdBNWe5Rg==}
@@ -2761,6 +2808,16 @@ snapshots:
     dependencies:
       '@prettier/plugin-oxc': 0.2.2
       prettier: 3.9.6
+
+  '@sxzz/test-utils@0.5.18(rolldown@1.2.2)(rollup@4.62.4)(typescript@6.0.3)(vitest@4.1.10(@types/node@26.1.2)(vite@8.2.0(@types/node@26.1.2)(jiti@2.7.0)(yaml@2.9.0)))':
+    dependencies:
+      tinyglobby: 0.2.17
+      unplugin-utils: 0.3.2
+      vitest: 4.1.10(@types/node@26.1.2)(vite@8.2.0(@types/node@26.1.2)(jiti@2.7.0)(yaml@2.9.0))
+    optionalDependencies:
+      rolldown: 1.2.2
+      rollup: 4.62.4
+      typescript: 6.0.3
 
   '@tybys/wasm-util@0.10.3':
     dependencies:
@@ -4171,6 +4228,12 @@ snapshots:
     transitivePeerDependencies:
       - oxc-resolver
 
+  rolldown-string@0.3.1(rolldown@1.2.2):
+    dependencies:
+      magic-string: 1.1.0
+    optionalDependencies:
+      rolldown: 1.2.2
+
   rolldown@1.2.2:
     dependencies:
       '@oxc-project/types': 0.142.0
@@ -4393,6 +4456,11 @@ snapshots:
       '@types/unist': 3.0.3
       unist-util-is: 6.0.1
       unist-util-visit-parents: 6.0.2
+
+  unplugin-utils@0.3.2:
+    dependencies:
+      pathe: 2.0.3
+      picomatch: 4.0.5
 
   unplugin@3.3.0(rolldown@1.2.2)(rollup@4.62.4)(vite@8.2.0(@types/node@26.1.2)(jiti@2.7.0)(yaml@2.9.0)):
     dependencies:

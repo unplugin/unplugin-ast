@@ -1,8 +1,4 @@
-import {
-  generateTransform,
-  MagicStringAST,
-  type CodeTransform,
-} from 'magic-string-ast'
+import { MagicString, MagicStringAST } from 'magic-string-ast'
 import { walkAsync } from 'yuku-ast'
 import {
   langFromPath,
@@ -15,6 +11,7 @@ import {
 import { useNodeRef } from './utils.ts'
 import type { OptionsResolved } from './options.ts'
 import type { Transformer, TransformerParsed } from './types.ts'
+import type { RolldownString } from 'rolldown-string'
 
 function parseProgram(code: string, id: string, parserOptions: ParseOptions) {
   const path = id.replace(/[?#].*$/, '')
@@ -66,17 +63,17 @@ async function getTransformersByFile(transformer: Transformer[], id: string) {
 }
 
 export async function transform(
-  code: string,
+  source: string | RolldownString,
   id: string,
   options: Pick<OptionsResolved, 'parserOptions' | 'transformer'>,
-): Promise<CodeTransform | undefined> {
-  const { getNodeRef } = useNodeRef()
-
+): Promise<RolldownString | undefined> {
   const transformers = await getTransformersByFile(options.transformer, id)
   if (!transformers.length) return
 
+  const code = source.toString()
   const program = parseProgram(code, id, options.parserOptions)
 
+  const getNodeRef = useNodeRef()
   await walkAsync(program, {
     async enter(node, context) {
       for (const { transformer, nodes } of transformers) {
@@ -93,7 +90,11 @@ export async function transform(
     },
   })
 
-  const s = new MagicStringAST(code)
+  const s =
+    typeof source === 'string'
+      ? new MagicString(source, { filename: id })
+      : source
+  const msa = new MagicStringAST(s as MagicString)
   for (const { transformer, nodes } of transformers) {
     for (const node of nodes) {
       const value = node.value
@@ -103,7 +104,7 @@ export async function transform(
       if (result) {
         let newAST: Node
         if (typeof result === 'string') {
-          s.overwriteNode(value, result)
+          msa.overwriteNode(value, result)
           newAST = parseReplacement(result, id, options.parserOptions)
           if (newAST.type === 'ExpressionStatement') {
             newAST = newAST.expression
@@ -115,7 +116,7 @@ export async function transform(
           const generated = generate(result as Program)
           let code = generated.code
           if (result.type.endsWith('Expression')) code = `(${code})`
-          s.overwriteNode(value, code)
+          msa.overwriteNode(value, code)
           newAST = {
             ...result,
             start: value.start,
@@ -127,14 +128,14 @@ export async function transform(
       } else if (result === false) {
         // removes node
         node.set(undefined)
-        s.removeNode(value)
+        msa.removeNode(value)
       }
     }
   }
 
   for (const { transformer } of transformers) {
-    await transformer.finalize?.(s)
+    await transformer.finalize?.(msa)
   }
 
-  return generateTransform(s, id)
+  return s
 }

@@ -22,7 +22,7 @@ test('remove node', async () => {
     ],
     parserOptions: {},
   }
-  const code = (await transform(source, 'foo.ts', options))?.code
+  const code = (await transform(source, 'foo.ts', options))?.toString()
   expect(code).toMatchInlineSnapshot(`
     "const comp = defineComponent({
         render() {

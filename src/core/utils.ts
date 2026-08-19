@@ -1,10 +1,7 @@
 import type { NodeRef } from './types.ts'
 import type { Node } from 'yuku-parser'
 
-export function useNodeRef(): {
-  nodeRefs: Map<Node, NodeRef<Node | undefined>>
-  getNodeRef: (node: Node) => NodeRef<Node | undefined>
-} {
+export function useNodeRef(): (node: Node) => NodeRef<Node | undefined> {
   const nodeRefs: Map<Node, NodeRef<Node | undefined>> = new Map()
 
   function getNodeRef(node: Node): NodeRef<Node | undefined> {
@@ -19,8 +16,5 @@ export function useNodeRef(): {
     return ref
   }
 
-  return {
-    nodeRefs,
-    getNodeRef,
-  }
+  return getNodeRef
 }
