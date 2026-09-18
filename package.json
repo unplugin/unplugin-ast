@@ -28,6 +28,7 @@
     "esbuild",
     "webpack"
   ],
+  "sideEffects": false,
   "exports": {
     ".": "./dist/index.js",
     "./esbuild": "./dist/esbuild.js",
