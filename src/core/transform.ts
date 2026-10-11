@@ -6,7 +6,6 @@ import {
   sourceTypeFromPath,
   type Node,
   type ParseOptions,
-  type Program,
 } from 'yuku-parser'
 import { useNodeRef } from './utils.ts'
 import type { OptionsResolved } from './options.ts'
@@ -113,7 +112,7 @@ export async function transform(
           newAST.end = value.end
         } else {
           const { generate } = await import('yuku-codegen')
-          const generated = generate(result as Program)
+          const generated = generate(result)
           let code = generated.code
           if (result.type.endsWith('Expression')) code = `(${code})`
           msa.overwriteNode(value, code)
